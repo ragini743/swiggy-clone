@@ -1,48 +1,67 @@
-import React from 'react'
+import React from "react";
+import { Logo, LocationLogo } from "../utils/constant";
+const arrayOfContent = [
+    {
+        src:"https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-10.png",
+        text:"Search" ,
+        id:"1",
+    },
+  {
+    src: "https://cdn.iconscout.com/icon/free/png-256/free-special-offer-1784827-1521773.png",
+    text: "Offer",
+    id: "2",
+  },
+  {
+    src: "https://static.thenounproject.com/png/1009849-200.png",
+    text: "Help",
+    id: "3",
+  },
+  {
+    src: "https://cdn-icons-png.freepik.com/256/456/456283.png",
+    text: "SignIn",
+    id: "4",
+  },
+  {
+    src: "https://www.shutterstock.com/image-vector/shopping-cart-vector-icon-on-260nw-1149438545.jpg",
+    text: "Cart",
+    id: "5",
+  },
+];
+export const Content = ({ content }) => {
+  return (
+    <div className="flex items-center mr-2 justify-center flex-grow basis-0 ">
+      <div className="w-[20%] md:w-[10%] mr-1">
+        <img
+          src={content.src}
+          alt=""
+          className="w-[100%] box-border object-cover"
+        ></img>
+      </div>
+      <div className=" text-[8px] md:text-sm">{content.text}</div>
+    </div>
+  );
+};
 
 const Header = () => {
   return (
-    <div>
-        <div>
-        <div>
-            <img src=""alt=""></img>
+    <div className=" flex justify-evenly w-[100%] shadow-lg bg-white z-30 fixed py-2 md:px-20 md:py-4 font-bold">
+      <div className="flex w-[50%] justify-between items-center">
+        <div className="flex items-center">
+          <div className="w-[15%] md:w-[20%]">
+            <img src={Logo} alt=""></img>
+          </div>
+          <div className="text-[8px] md:text-sm">ALLAHABAD</div>
         </div>
-        <p>Location : allahabad</p>
-        </div>
-        <div>
-            <div>
-                <input type='text'></input>
-            </div>
-            <ul className="">
-                <li>
-                    <div>
-                        <img src=""alt=""></img>
-                    </div>
-                    offer
-                </li>
-                <li>
-                    <div>
-                      <img src='' alt =""></img>
-                    </div>
-                    help
-                </li>
-                <li>
-                    <div>
-                        <img src=''alt=''></img>
-                    </div>
-                    signIn
-                    
-                </li>
-                <li>
-                    <div>
-                        <img src=''alt =""></img>
-                    </div>
-                    cart
-                </li>
-            </ul>
-        </div>
-    </div>
-  )
-}
+      
+      </div>
 
-export default Header
+      <div className="flex items-center w-[50%] justify-evenly">
+        {arrayOfContent.map((content) => {
+          return <Content key={content.id} content={content} />;
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default Header;

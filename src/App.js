@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+
 import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
        <Header />
+      <p className='pt-14 md:pt-28'>scdvfbgnh</p> 
     </div>
   );
 }
