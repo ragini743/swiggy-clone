@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo, LocationLogo } from "../utils/constant";
+import { Logo } from "../utils/constant";
 const arrayOfContent = [
     {
         src:"https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-10.png",
@@ -45,7 +45,7 @@ export const Content = ({ content }) => {
 const Header = () => {
   return (
     <div className=" flex justify-evenly w-[100%] shadow-lg bg-white z-30 fixed py-2 md:px-20 md:py-4">
-      <div className="flex w-[50%] justify-between items-center">
+      <div className="flex w-[45%] justify-between items-center">
         <div className="flex items-center">
           <div className="w-[15%] md:w-[20%]">
             <img src={Logo} alt=""></img>
