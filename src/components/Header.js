@@ -37,7 +37,7 @@ export const Content = ({ content }) => {
           className="w-[100%] object-cover h-auto "
         ></img>
       </div>
-      <div className=" text-[8px] md:text-lg text-gray-800 hover:text-orange-500">{content.text}</div>
+      <div className=" text-[8px] md:text-sm text-gray-800 hover:text-orange-500">{content.text}</div>
     </div>
   );
 };
