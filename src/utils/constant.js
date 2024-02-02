@@ -1,6 +1,7 @@
 export const Logo = "https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.png" ;
 
 export const CDN_URL ="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"
+export const CircleCdnUrl ="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/"
 
 
 export const  swiggy_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4828823&lng=81.869039"

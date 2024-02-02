@@ -1,18 +1,17 @@
 import React from 'react'
-import { CDN_URL } from '../utils/constant'
+import { CDN_URL, CircleCdnUrl } from '../utils/constant'
 const ScrollableFood = ({data}) => {
-    console.log("scroll",data)
-    const text = data.action.text
- const Url =CDN_URL+data.imageId
+ 
+ const Url =CircleCdnUrl+data.imageId
 
   return (
     <div className='mr-[5%]'>
        
-        <div className='flex flex-col'>
-            <div className='w-24 h-24 md:w-40 md:h-40 rounded-full shadow-lg' >
-                <img src={Url} alt="" className='rounded-full w-full object-contain h-[100%] '></img>
+        <div className='flex flex-col items-center justify-center '>
+            <div className='w-20  md:w-40 md:h-40 flex ' >
+                <img src={Url} alt="" className=' w-full  h-auto'></img>
             </div>
-            <p className='text-xs md:text-sm text-center'>{text}</p>
+            
         </div>
     </div>
   )
