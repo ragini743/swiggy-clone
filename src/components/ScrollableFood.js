@@ -1,8 +1,11 @@
 import React from 'react'
-import { CDN_URL, CircleCdnUrl } from '../utils/constant'
+import {  CircleCdnUrl } from '../utils/constant'
+
+
+
 const ScrollableFood = ({data}) => {
  
- const Url =CircleCdnUrl+data.imageId
+ const Url = CircleCdnUrl+data.imageId
 
   return (
     <div className='mr-[5%]'>

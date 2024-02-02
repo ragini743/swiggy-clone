@@ -3,9 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { restaurantListData } from "../utils/constant";
 import RestaurantList from "./RestaurantList";
 import ScrollableFood from "./ScrollableFood";
+import RestaurantChain from "./RestaurantChain";
 
 const Body = () => {
   const [listOfRetaurant, setListOfRestaurant] = useState([]);
+  const [topRestaurant,setTopRestaurant] =useState([])
  
   const [scrollFood, setScrollFood] = useState([]);
   const [scrollPositon,setScrollPosition] = useState(0) ;
@@ -33,9 +35,10 @@ const Body = () => {
     const json = await p;
     // console.log(json);
     setScrollFood(json.data.cards[0].card.card.gridElements.infoWithStyle.info);
-    // setScrollPosition(json.data.cards[0].card.card.gridElements.infoWithStyle.info)
+    setTopRestaurant(json.data.cards[1])
+    
   };
-  // console.log(scrollFood)
+
   useEffect(() => {
     getRestaurant();
   }, []);
@@ -63,6 +66,7 @@ const Body = () => {
           <ScrollableFood key={data.id} data={data} />
         ))}
       </div>
+      <RestaurantChain topRestaurant={topRestaurant} />
       <RestaurantList />
     </div>
   );
