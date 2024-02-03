@@ -10,8 +10,8 @@ const TopRestaurant = ({resInfo}) => {
     console.log(URL)
   return (
     <div className=' ml-[5%]'>
-        <div className='flex flex-col items-center justify-center flex-1 flex-shrink-0'>
-          <div className=' rounded-2xl min-w-52 min-w-md lg:w-72'>
+        <div className='flex flex-col  '>
+          <div className=' rounded-2xl min-w-28 sm:w-36 md:w-48 lg:w-68'>
              <img src={URL} alt='' className='h-full w-full object-contain rounded-2xl'></img>
           </div>
           <p className='text-xs'>{name} </p>
@@ -19,7 +19,7 @@ const TopRestaurant = ({resInfo}) => {
           <div>
             
           </div>
-          <p>{areaName}</p>
+          <p className='text-xs sm:text-md'>{areaName}</p>
         </div>
         
     </div>

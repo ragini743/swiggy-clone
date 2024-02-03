@@ -48,10 +48,10 @@ const Body = () => {
 
 
   return (
-    <div className="pt-14 w-[90%] md:w-[80%] mx-auto md:pt-28">
+    <div className="pt-14 w-[90%] md:w-[80%] mx-auto md:pt-28 overflow-hidden">
       <div className="flex justify-between">
         <h1 className="font-bold w-[70%]">whats on your mind ? ..</h1>
-        <div className="flex w-[20%]  items-center justify-between max-w-[100%]">
+        <div className="flex  items-center justify-between w-[20%]">
           <div className="w-[20%]  mr-[5%] border-gray-100 border-2 rounded-full bg-gray-200 "><img src="https://cdn.iconscout.com/icon/free/png-256/free-angle-left-b-1966289-1659461.png"alt="" className="h-auto w-full rounded-full object-contain" ></img></div>
           <div className="w-[20%] mr-[5%] border-gray-100 border-2 rounded-full bg-gray-200 " onClick={ () =>{handleRightArrow()
           console.log("hello")
