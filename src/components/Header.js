@@ -30,7 +30,7 @@ const arrayOfContent = [
 export const Content = ({ content }) => {
   return (
     <div className="flex items-center mr-2 justify-center flex-grow basis-0 ">
-      <div className="w-[20%] md:w-[15%] mr-1 md:mr-2 ">
+      <div className="w-[20%]  mr-1 md:mr-2 ">
         <img
           src={content.src}
           alt=""
@@ -55,7 +55,7 @@ const Header = () => {
       
       </div>
 
-      <div className="flex items-center w-[50%] justify-evenly">
+      <div className="flex items-center w-[50%] justify-evenly flex-grow basis-0">
         {arrayOfContent.map((content) => {
           return <Content key={content.id} content={content} />;
         })}

@@ -7,6 +7,8 @@ export const CircleCdnUrl ="https://media-assets.swiggy.com/swiggy/image/upload/
 export const  swiggy_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4828823&lng=81.869039"
 
 
+export const s="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
+
 export const restaurantListData = {
   "statusCode": 0,
   "data": {
