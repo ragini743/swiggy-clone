@@ -4,8 +4,9 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
 import RestoLoading from './RestoLoading';
 
-const LoadingState = ({listOfRestaurant,setListOfRestaurant}) => {
-   
+const LoadingState = ({listOfRestaurant}) => {
+  
+  //  const listedRestaurant =
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ const LoadingState = ({listOfRestaurant,setListOfRestaurant}) => {
             }, 1000);
           });
         const json = await pr
-        console.log(json)
+        // console.log(json)
         const data =json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants
         
           setItems(prevItems => [...prevItems, ...data]);
@@ -38,10 +39,10 @@ const LoadingState = ({listOfRestaurant,setListOfRestaurant}) => {
       useEffect(() => {
         fetchData();
       }, []);
-      console.log("items",items)
+      // console.log("items",items)
    if(isLoading.length===0){return null}
    return (
-    <div>
+    <div className='relative'>
       <InfiniteScroll
         dataLength={items.length}
         next={fetchData}
@@ -49,11 +50,11 @@ const LoadingState = ({listOfRestaurant,setListOfRestaurant}) => {
         loader={<p>Loading...</p>}
         endMessage={<p>No more data to load.</p>}
       >
-        <ul className='ul'>
+        <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '>
           {items.map(item => (
-           <RestoLoading item={item}/>
+           <RestoLoading key={item.info.id} item={item}/>
           ))}
-        </ul>
+       </div>
       </InfiniteScroll>
       {error && <p>Error: {error.message}</p>}
     </div>

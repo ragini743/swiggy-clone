@@ -83,8 +83,9 @@ const Body = () => {
       </div>
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
+      
       <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} />
-      <LoadingState />
+      <LoadingState setListOfRestaurant={setListOfRestaurant} listOfRestaurant={listOfRestaurant} />
     </div>
   );
 };

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Restaurants from './Restaurants'
+import LoadingState from './LoadingState'
+
+
 const RestaurantList = ({listOfRestaurant}) => {
 
 const [onlineFood ,setOnlineFood] = useState([])
@@ -20,10 +23,12 @@ if(onlineFood.length ===0){return null}
           <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'>Pure veg</div>
           <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'>Offer</div>
         </div>
-        <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 auto-rows-fr grid-flow-row-dense h-full'> 
-          {onlineFood.map((restaurantData) =>{return (
-            <Restaurants className="h-full" key={restaurantData.info.id} restaurantData={restaurantData} />
+        <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '> 
+          {onlineFood.map((restaurantData,index) =>{return (
+            <Restaurants className="" key={restaurantData.info.id} restaurantData={restaurantData} index = {index}  />
+
           )})}
+          
         </div>
 
     </div>

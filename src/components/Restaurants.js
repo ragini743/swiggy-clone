@@ -1,15 +1,16 @@
 import React from "react";
 import { s } from "../utils/constant";
-
-const Restaurants = ({ restaurantData }) => {
+import LoadingState from "./LoadingState";
+const Restaurants = ({ restaurantData ,index }) => {
   // console.log(restaurantData);
   const { cloudinaryImageId, name, areaName, avgRating, cuisines, sla } =
     restaurantData.info;
   const url = s + cloudinaryImageId;
+  console.log(index)
   return (
     <div>
-      <div className="h-full text-[.5rem] sm:text-sm grid gap-5">
-        <div className="rounded-xl w-[100%] h-[100%] ">
+      <div className=" text-[.5rem] sm:text-sm grid gap-5">
+        <div className="rounded-xl w-[100%]">
           <img
             src={url}
             alt=""
@@ -26,8 +27,10 @@ const Restaurants = ({ restaurantData }) => {
         <div className="pt-1">{cuisines.join(",")} </div>
         <p className="pt-1">{areaName}</p>
         </div>
+       
       
       </div>
+     
     </div>
   );
 };
