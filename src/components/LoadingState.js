@@ -1,21 +1,32 @@
 import React, { useState ,useEffect} from 'react'
 // import { loadingData } from '../utils/loadingData'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { loadingData } from '../utils/loadingData';
+import RestoLoading from './RestoLoading';
 
-const LoadingState = () => {
+const LoadingState = ({listOfRestaurant,setListOfRestaurant}) => {
    
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
+    
     const fetchData = async () => {
         setIsLoading(true);
         setError(null);
       
         try {
-          const response = await fetch(`https://api.example.com/items?page=${page}`);
-          const data = await response.json();
-      
+        //   const response = await fetch(`https://api.example.com/items?page=${page}`);
+        //   const data = await response.json();
+          const pr = new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(loadingData);
+            }, 1000);
+          });
+        const json = await pr
+        console.log(json)
+        const data =json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants
+        
           setItems(prevItems => [...prevItems, ...data]);
           setPage(prevPage => prevPage + 1);
         } catch (error) {
@@ -27,6 +38,7 @@ const LoadingState = () => {
       useEffect(() => {
         fetchData();
       }, []);
+      console.log("items",items)
    if(isLoading.length===0){return null}
    return (
     <div>
@@ -37,9 +49,9 @@ const LoadingState = () => {
         loader={<p>Loading...</p>}
         endMessage={<p>No more data to load.</p>}
       >
-        <ul>
+        <ul className='ul'>
           {items.map(item => (
-            <li key={item.id}>{item.name}</li>
+           <RestoLoading item={item}/>
           ))}
         </ul>
       </InfiniteScroll>

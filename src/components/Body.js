@@ -4,6 +4,7 @@ import { restaurantListData } from "../utils/constant";
 import RestaurantList from "./RestaurantList";
 import ScrollableFood from "./ScrollableFood";
 import RestaurantChain from "./RestaurantChain";
+import LoadingState from "./LoadingState";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -33,7 +34,7 @@ const Body = () => {
       }, 2000);
     });
     const json = await p;
-    console.log(json);
+    // console.log(json);
     setScrollFood(json.data.cards[0].card.card.gridElements.infoWithStyle.info);
     setTopRestaurant(json.data.cards[1]);
     setListOfRestaurant(json.data.cards[4])
@@ -82,7 +83,8 @@ const Body = () => {
       </div>
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
-      <RestaurantList listOfRestaurant={listOfRestaurant} />
+      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} />
+      <LoadingState />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { s } from "../utils/constant";
 
 const Restaurants = ({ restaurantData }) => {
-  console.log(restaurantData);
+  // console.log(restaurantData);
   const { cloudinaryImageId, name, areaName, avgRating, cuisines, sla } =
     restaurantData.info;
   const url = s + cloudinaryImageId;
