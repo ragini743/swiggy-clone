@@ -24,6 +24,7 @@ const RestaurantChain = ({topRestaurant}) => {
         {resData.map((resInfo) =>{
          return <TopRestaurant key={resInfo.info.id} resInfo={resInfo} />
         })}
+      
        </div>
     </div>
   )

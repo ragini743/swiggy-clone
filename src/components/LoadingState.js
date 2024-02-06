@@ -4,10 +4,9 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
 import RestoLoading from './RestoLoading';
 
-const LoadingState = ({listOfRestaurant}) => {
-  
-  //  const listedRestaurant =
-    const [items, setItems] = useState([]);
+const LoadingState = ({items ,setItems}) => {
+ console.log("items" ,items)
+    // const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
@@ -25,7 +24,7 @@ const LoadingState = ({listOfRestaurant}) => {
             }, 1000);
           });
         const json = await pr
-        // console.log(json)
+       
         const data =json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants
         
           setItems(prevItems => [...prevItems, ...data]);
@@ -39,16 +38,29 @@ const LoadingState = ({listOfRestaurant}) => {
       useEffect(() => {
         fetchData();
       }, []);
-      // console.log("items",items)
+      
    if(isLoading.length===0){return null}
    return (
-    <div className='relative'>
+    <div className='overflow-x-hidden'>
+           <hr className='shadow-lg'></hr>
+        <h1 className='text-sm pt-4 font-bold md:text-lg'>Restaurants with online food delivery in  prayagraj </h1>
+        <div className='flex flex-wrap justify-evenly items-center text-xs  md:text-sm'>
+          <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'>Fast Delivery </div>
+          <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'> New on swiggy </div>
+          <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'>Rating 4.0+ </div>
+          <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'>Pure veg</div>
+          <div className='rounded-lg py-1 px-2 border-2 border-gray-200 mt-4'>Offer</div>
+        </div>
+
+
+
       <InfiniteScroll
         dataLength={items.length}
         next={fetchData}
         hasMore={true} // Replace with a condition based on your data source
         loader={<p>Loading...</p>}
         endMessage={<p>No more data to load.</p>}
+        className='overflow-x-hidden'
       >
         <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '>
           {items.map(item => (

@@ -7,6 +7,7 @@ import RestaurantChain from "./RestaurantChain";
 import LoadingState from "./LoadingState";
 
 const Body = () => {
+  const [items, setItems] = useState([]);
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [topRestaurant, setTopRestaurant] = useState([]);
 
@@ -84,8 +85,8 @@ const Body = () => {
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
       
-      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} />
-      <LoadingState setListOfRestaurant={setListOfRestaurant} listOfRestaurant={listOfRestaurant} />
+    <LoadingState items={items} setItems={setItems} />
+      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
     </div>
   );
 };

@@ -6,7 +6,7 @@ const Restaurants = ({ restaurantData ,index }) => {
   const { cloudinaryImageId, name, areaName, avgRating, cuisines, sla } =
     restaurantData.info;
   const url = s + cloudinaryImageId;
-  console.log(index)
+  // console.log(index)
   return (
     <div>
       <div className=" text-[.5rem] sm:text-sm grid gap-5">
@@ -24,7 +24,7 @@ const Restaurants = ({ restaurantData ,index }) => {
           <span>{avgRating}</span>
           <span>. {sla.slaString}</span>
         </div>
-        <div className="pt-1">{cuisines.join(",")} </div>
+        <div className="pt-1 overflow-x-hidden text-ellipsis break-words break-all">{cuisines.join(",")} </div>
         <p className="pt-1">{areaName}</p>
         </div>
        
