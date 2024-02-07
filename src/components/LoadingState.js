@@ -3,10 +3,10 @@ import React, { useState ,useEffect} from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
 import RestoLoading from './RestoLoading';
+import LoaderSkelton from './LoaderSkelton';
 
 const LoadingState = ({items ,setItems}) => {
- console.log("items" ,items)
-    // const [items, setItems] = useState([]);
+ 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
@@ -21,7 +21,7 @@ const LoadingState = ({items ,setItems}) => {
           const pr = new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve(loadingData);
-            }, 1000);
+            }, 2000);
           });
         const json = await pr
        
@@ -58,7 +58,7 @@ const LoadingState = ({items ,setItems}) => {
         dataLength={items.length}
         next={fetchData}
         hasMore={true} // Replace with a condition based on your data source
-        loader={<p>Loading...</p>}
+        loader={<p>Loading ..... </p>}
         endMessage={<p>No more data to load.</p>}
         className='overflow-x-hidden'
       >

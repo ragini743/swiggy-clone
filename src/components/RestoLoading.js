@@ -6,7 +6,7 @@ const { name , cloudinaryImageId , avgRating , areaName , sla , cuisines } =item
 const url = s + cloudinaryImageId;
 return (
   <div className=''>
-    <div className=" text-[.5rem] sm:text-sm grid gap-5">
+    <div className=" text-[.5rem] sm:text-sm mb-20">
       <div className="rounded-xl w-[100%] ">
         <img
           src={url}
