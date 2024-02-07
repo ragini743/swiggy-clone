@@ -5,6 +5,7 @@ import RestaurantList from "./RestaurantList";
 import ScrollableFood from "./ScrollableFood";
 import RestaurantChain from "./RestaurantChain";
 import LoadingState from "./LoadingState";
+import Footer from "./Footer";
 
 const Body = () => {
   const [items, setItems] = useState([]);
@@ -49,7 +50,8 @@ const Body = () => {
   }
 
   return (
-    <div className="pt-16 md:pt-28 overflow-hidden  box-border w-[80%]  max-w-70% mx-auto">
+    <div className="pt-16 md:pt-28 overflow-hidden  box-border">
+      <div className=" w-[80%]  max-w-70% mx-auto">
       <div className="">
       <div className=" flex justify-between mx-auto">
         <h1 className="font-bold md:text-2xl">whats on your mind ? ..</h1>
@@ -85,8 +87,10 @@ const Body = () => {
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
       
-    <LoadingState items={items} setItems={setItems} />
-      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
+    {/* <LoadingState items={items} setItems={setItems} />
+      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} /> */}
+      </div>
+      <Footer />
     </div>
   );
 };
