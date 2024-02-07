@@ -1,4 +1,5 @@
 import React from 'react'
+import { appStore_img, downloadingSwiggy, googleplay_img, swiggyIcon } from '../utils/logos'
 
 const Footer = () => {
   return (
@@ -8,26 +9,29 @@ const Footer = () => {
                 <h1 className='font-bold text-lg mb-5 mr-10'>For better user experience download the swiggy app now</h1>
                 <div className='flex justify-between w-full '>
                 <div className='w-[40%]'>
-                    <a href='downloadingSwiggy'>
-                        <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/play_store.png'alt='downloading-icon'></img>
+                    <a href={downloadingSwiggy}>
+                        <img src={googleplay_img} alt='downloading-icon'></img>
                     </a>
                 </div>
                 <div className='w-[40%]'>
-                <a href='downloadingSwiggy'>
-                        <img src='	https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/app_store.png'alt='downloading-icon'></img>
+                <a href={downloadingSwiggy}>
+                        <img src={appStore_img} alt='downloading-icon'></img>
                     </a>
                 </div>
                 </div>
                 
             </div>
-            <div className='bg-black flex flex-wrap px-[10%] text-white'>
-                <div>
-                    <div></div>
-                    2023Bundl<br></br>
+            <div className='bg-black flex px-[10%] text-white pt-14'>
+                <div className='w-[35%]'>
+                    <div className='w-[35%]'>
+                        <img src={swiggyIcon}alt='swiggy-logo'></img>
+                    </div>
+                   &copy; 2023Bundl<br></br>
                     Technolies Pvt. Ltd
                 </div>
-                <div className=''>
-                    Company
+                <div className=' flex  w-[65%] flex-wrap justify-evenly'>
+                <div >
+                  <h1 className='font-bold'> Company</h1> 
                     <ul>
                         <li>About </li>
                         <li>Careers</li>
@@ -36,7 +40,8 @@ const Footer = () => {
                         <li>Swiggy instamart</li>
                     </ul>
                 </div>
-                <div>contct us
+                <div className=''>
+                    <h1 className='font-bold'>contct us</h1>
                 <ul>
                         <li>help and support</li>
                         <li>partener with us</li>
@@ -44,8 +49,8 @@ const Footer = () => {
                        
                     </ul>
                 </div>
-                <div>
-                    We deliver to :
+                <div className=''>
+                   <h1 className='font-bold'> We deliver to :</h1>
                     <ul>
                         <li>Banglore </li>
                         <li>Gurgaon</li>
@@ -55,8 +60,8 @@ const Footer = () => {
                         <li>Mumbai</li>
                     </ul>
                 </div>
-                <div>
-                    Legal
+                <div className=''>
+                    <h1 className='font-bold'>Legal</h1>
                     <ul>
                         <li>Terms and conditions </li>
                         <li>Cookie and policy</li>
@@ -64,6 +69,8 @@ const Footer = () => {
                        
                     </ul>
                 </div>
+                </div>
+              
 
             </div>
         </footer>

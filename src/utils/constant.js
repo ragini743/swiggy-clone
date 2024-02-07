@@ -9,7 +9,7 @@ export const  swiggy_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=
 
 export const s="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" ;
 
-export const downloadingSwiggy = "https://play.google.com/store/apps/details?id=in.swiggy.android&referrer=utm_source%3Dswiggy%26utm_medium%3Dheader";
+
 
 export const restaurantListData = {
   "statusCode": 0,
