@@ -21,18 +21,18 @@ const Footer = () => {
                 </div>
                 
             </div>
-            <div className='bg-black flex px-[10%] text-white pt-14'>
-                <div className='w-[35%]'>
+            <div className='bg-black flex px-[5%] sm:px-[10%] text-white py-14'>
+                <div className='w-[35%] sm:w-[30%]'>
                     <div className='w-[35%]'>
                         <img src={swiggyIcon}alt='swiggy-logo'></img>
                     </div>
                    &copy; 2023Bundl<br></br>
                     Technolies Pvt. Ltd
                 </div>
-                <div className=' flex  w-[65%] flex-wrap justify-evenly'>
-                <div >
-                  <h1 className='font-bold'> Company</h1> 
-                    <ul>
+                <div className=' grid grid-cols-2 sm:grid-cols-3 gap-5 w-[65%] sm:w-[w-70%] '>
+                <div className=''>
+                  <h1 className='font-bold text-sm sm:text-lg'> Company</h1> 
+                    <ul className='text-xs sm:text-sm'>
                         <li>About </li>
                         <li>Careers</li>
                         <li>Team</li>
@@ -41,17 +41,17 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className=''>
-                    <h1 className='font-bold'>contct us</h1>
-                <ul>
-                        <li>help and support</li>
+                    <h1 className='font-bold text-sm sm:text-lg'>contct us</h1>
+                <ul className='text-xs sm:text-sm'>
+                        <li>help & support</li>
                         <li>partener with us</li>
                         <li>Ride with us</li>
                        
                     </ul>
                 </div>
                 <div className=''>
-                   <h1 className='font-bold'> We deliver to :</h1>
-                    <ul>
+                   <h1 className='font-bold text-sm sm:text-lg'> We deliver to :</h1>
+                    <ul  className='text-xs sm:text-sm'>
                         <li>Banglore </li>
                         <li>Gurgaon</li>
                         <li>Hydrabad</li>
@@ -61,10 +61,10 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className=''>
-                    <h1 className='font-bold'>Legal</h1>
-                    <ul>
-                        <li>Terms and conditions </li>
-                        <li>Cookie and policy</li>
+                    <h1 className='font-bold text-sm sm:text-lg'>Legal</h1>
+                    <ul  className='text-xs sm:text-sm'>
+                        <li>Terms & conditions </li>
+                        <li>Cookie & policy</li>
                         <li>privacy policy</li>
                        
                     </ul>
