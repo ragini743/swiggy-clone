@@ -5,7 +5,7 @@ const RestoLoading = ({item}) => {
 const { name , cloudinaryImageId , avgRating , areaName , sla , cuisines } =item.info
 const url = s + cloudinaryImageId;
 return (
-  <div className=''>
+  <div className='relative'>
     <div className=" text-[.5rem] sm:text-sm mb-20">
       <div className="rounded-xl w-[100%] ">
         <img
@@ -31,3 +31,22 @@ return (
 }
 
 export default RestoLoading
+
+
+export const PromotedLable = () =>{
+  return (props) =>{
+console.log("props",props)
+const {item} =props ;
+console.log("i",item)
+const discountHeader= item.info?.aggregatedDiscountInfoV3.header||item.info.aggregatedDiscountInfoV2.header
+const discountsubHeader= item.info?.aggregatedDiscountInfoV3.subHeader||item.info.aggregatedDiscountInfoV2.subHeader
+const data =discountHeader+discountsubHeader
+
+return(
+<div className='reltive'>
+  <label className="label  absolute  z-10 font-bold text-center  ">{data}</label>
+  <RestoLoading {...props} />
+</div>
+)
+}
+}

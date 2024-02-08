@@ -36,3 +36,23 @@ const Restaurants = ({ restaurantData ,index }) => {
 };
 
 export default Restaurants;
+
+
+
+export const PromotedLable2 = () =>{
+  return (props) =>{
+console.log("props",props)
+const {item} =props ;
+console.log("i",item)
+const discountHeader= item.info?.aggregatedDiscountInfoV3.header||item.info.aggregatedDiscountInfoV2.header
+const discountsubHeader= item.info?.aggregatedDiscountInfoV3.subHeader||item.info.aggregatedDiscountInfoV2.subHeader
+const data =discountHeader+discountsubHeader
+
+return(
+<div className='reltive'>
+  <label className="label  absolute z-10 font-bold text-center  ">{data}</label>
+  <Restaurants {...props} />
+</div>
+)
+}
+}

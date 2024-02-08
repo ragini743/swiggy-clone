@@ -2,7 +2,7 @@ import React, { useState ,useEffect} from 'react'
 // import { loadingData } from '../utils/loadingData'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
-import RestoLoading from './RestoLoading';
+import RestoLoading, { PromotedLable } from './RestoLoading';
 import LoaderSkelton from './LoaderSkelton';
 
 const LoadingState = ({items ,setItems}) => {
@@ -10,6 +10,8 @@ const LoadingState = ({items ,setItems}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
+    const RestaurantWithPromoted =PromotedLable()
+    // console.log("promoted",RestaurantWithPromoted)
     
     const fetchData = async () => {
         setIsLoading(true);
@@ -63,14 +65,17 @@ const LoadingState = ({items ,setItems}) => {
         className='overflow-x-hidden'
       >
         <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '>
-          {items.map(item => (
-           <RestoLoading key={item.info.id} item={item}/>
+          {items.map((item) => (
+           
+            item.info.aggregatedDiscountInfoV3 ?(<RestaurantWithPromoted item={item} />) :(<RestoLoading key={item.info.id} item={item} />)
+           
+          
           ))}
        </div>
       </InfiniteScroll>
       {error && <p>Error: {error.message}</p>}
     </div>
-  );
+  )
 }
 
 export default LoadingState

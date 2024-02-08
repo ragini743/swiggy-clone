@@ -6,6 +6,7 @@ import ScrollableFood from "./ScrollableFood";
 import RestaurantChain from "./RestaurantChain";
 import LoadingState from "./LoadingState";
 import Footer from "./Footer";
+import { ProMotedItem } from "./RestoLoading";
 
 const Body = () => {
   const [items, setItems] = useState([]);
@@ -86,9 +87,10 @@ const Body = () => {
       </div>
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
-      
-    {/* <LoadingState items={items} setItems={setItems} />
-      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} /> */}
+      {}
+    <LoadingState items={items} setItems={setItems} />
+   
+      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
       </div>
       <Footer />
     </div>
