@@ -41,10 +41,19 @@ const {item} =props ;
 const discountHeader= item.info?.aggregatedDiscountInfoV3.header||item.info.aggregatedDiscountInfoV2.header
 const discountsubHeader= item.info?.aggregatedDiscountInfoV3.subHeader||item.info.aggregatedDiscountInfoV2.subHeader
 const data =discountHeader+discountsubHeader
+const style={
+  "padding-left": "10px",
+  "color": "white",
+  "background-color": "#5f61638a"
+ }
 
 return(
 <div className='reltive'>
-  <label className="label11  absolute  z-10 font-bold text-center  ">{data}</label>
+<div className="flex justify-center relative">
+        <div className="label111 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-2xl left-0 right-0 top-[130px] shadow-lg border-2 "style={style}>
+          {data}
+        </div>
+        </div>
   <RestoLoading {...props} />
 </div>
 )

@@ -8,7 +8,7 @@ const Restaurants = ({ restaurantData, index }) => {
   const url = s + cloudinaryImageId;
   // console.log(index)
   return (
-    <div>
+    <div className="relative">
       <div className=" text-[.5rem] sm:text-sm mb-20">
         <div className="rounded-xl w-[100%]">
           <img
@@ -50,17 +50,19 @@ export const PromotedLableTwo = () => {
       restaurantData.info?.aggregatedDiscountInfoV3.subHeader ||
       restaurantData.info.aggregatedDiscountInfoV2.subHeader;
     const data = discountHeader + discountsubHeader;
-  const style={"background-color": "#5f61638a",
-    "box-shadow": "cyan",
-  
+  const style={
     "padding-left": "10px",
     "color": "white",
-    "font-size": "larger",}
+    "background-color": "#5f61638a"
+   }
     return (
       <div className="reltive">
-        <label className="label22 absolute z-10  "style={style}>
+        <div className="flex justify-center relative">
+        <div className="label22 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-lg left-0 right-0 top-[130px] shadow-2xl border-2 "style={style}>
           {data}
-        </label>
+        </div>
+        </div>
+      
         <Restaurants {...props} />
       </div>
     );
