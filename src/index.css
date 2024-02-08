@@ -11,14 +11,34 @@ body {
 /* max-width: 768px; */
   
 }
-/* * {
-  box-sizing: border-box;
-} */
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; 
+}
+::-webkit-scrollbar-track {
+  background:white; 
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(239, 237, 237); 
+  
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cecbcb;
+visibility: visible; 
+}
+
+
+
 
 @tailwind base;
 @tailwind components;

@@ -9,7 +9,7 @@ const Restaurants = ({ restaurantData, index }) => {
   // console.log(index)
   return (
     <div className="relative">
-      <div className=" text-[.5rem] sm:text-sm mb-20">
+      <div className=" text-[.5rem] sm:text-sm mb-10 md:mb-14">
         <div className="rounded-xl w-[100%]">
           <img
             src={url}
@@ -26,7 +26,7 @@ const Restaurants = ({ restaurantData, index }) => {
             <span>{avgRating}</span>
             <span>. {sla.slaString}</span>
           </div>
-          <div className="pt-1 overflow-x-hidden text-ellipsis break-words break-all">
+          <div className="pt-1 overflow-hidden text-ellipsis break-words break-all">
             {cuisines.join(",")}{" "}
           </div>
           <p className="pt-1">{areaName}</p>
@@ -58,7 +58,7 @@ export const PromotedLableTwo = () => {
     return (
       <div className="reltive">
         <div className="flex justify-center relative">
-        <div className="label22 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-lg left-0 right-0 top-[130px] shadow-2xl border-2 "style={style}>
+        <div className="label22 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-lg left-0 right-0 top-[130px] shadow-2xl "style={style}>
           {data}
         </div>
         </div>

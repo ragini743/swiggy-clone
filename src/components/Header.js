@@ -55,7 +55,7 @@ const Header = () => {
       
       </div>
 
-      <div className="flex items-center w-[50%] justify-evenly flex-grow basis-0">
+      <div className="flex items-center w-[50%] justify-evenly flex-grow basis-0 ">
         {arrayOfContent.map((content) => {
           return <Content key={content.id} content={content} />;
         })}

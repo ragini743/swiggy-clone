@@ -50,7 +50,7 @@ const style={
 return(
 <div className='reltive'>
 <div className="flex justify-center relative">
-        <div className="label111 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-2xl left-0 right-0 top-[130px] shadow-lg border-2 "style={style}>
+        <div className="label111 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-2xl left-0 right-0 top-[130px] shadow-lg "style={style}>
           {data}
         </div>
         </div>
