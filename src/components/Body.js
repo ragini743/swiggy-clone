@@ -88,7 +88,7 @@ const Body = () => {
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
       {}
-    <LoadingState items={items} setItems={setItems} />
+    {/* <LoadingState items={items} setItems={setItems} /> */}
    
       <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
       </div>
