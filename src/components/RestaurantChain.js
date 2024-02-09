@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TopRestaurant from './TopRestaurant'
+import { Link } from 'react-router-dom'
 
 const RestaurantChain = ({topRestaurant}) => {
   const [resData,setResData] = useState([])
@@ -22,7 +23,10 @@ const RestaurantChain = ({topRestaurant}) => {
       <h1 className='font-bold md:text-2xl mb-6 sm:mb-10'>{title}</h1>
        <div className='overflow-x-auto  w-[100%] flex items-center '>
         {resData.map((resInfo) =>{
-         return <TopRestaurant key={resInfo.info.id} resInfo={resInfo} />
+         return (<Link to={"/restaurant/"+resInfo.info.id} key={resInfo.info.id} className='mr-[5%]'>
+         <TopRestaurant  resInfo={resInfo} />
+         </Link>
+         )
         })}
       
        </div>

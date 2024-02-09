@@ -37,8 +37,8 @@ const arrayOfContent = [
 ];
 export const Content = ({ content }) => {
   return (
-    <div className="flex items-center mr-2 justify-center flex-grow basis-0 ">
-    
+    <div className=" ">
+    <Link to="/form" className="flex items-center mr-2 justify-center flex-grow basis-0">
       
       <div className="w-[20%]  mr-1 md:mr-2 ">
         <img
@@ -48,7 +48,7 @@ export const Content = ({ content }) => {
         ></img>
       </div>
       <div className=" text-[8px] md:text-sm text-gray-800 hover:text-orange-500">{content.text}</div>
-      
+      </Link>  
     </div>
   );
 };
