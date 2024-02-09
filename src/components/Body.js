@@ -8,6 +8,7 @@ import LoadingState from "./LoadingState";
 import Footer from "./Footer";
 import { ProMotedItem } from "./RestoLoading";
 
+
 const Body = () => {
   const [items, setItems] = useState([]);
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
