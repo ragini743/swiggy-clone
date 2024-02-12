@@ -13,7 +13,7 @@ const arrayOfContent = [
     src: "https://cdn.iconscout.com/icon/free/png-256/free-special-offer-1784827-1521773.png",
     text: "Offer",
     id: "2",
-    href:"offer"
+    href:"/offer"
 
   },
   {
