@@ -1,8 +1,9 @@
-export const checkValidData = (email) =>{
-    const isEmailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.text(email);
-    // const isPasswordValid =/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/.text(password);
+export const checkValidData = (email,number) =>{
+    const isEmailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+    
+    const isNumberValid = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(number)
 
-    if(!isEmailValid) return "email id is not valid";
-    // if(!isPasswordValid) return"password is not valid";
-    // return null;
+    if(!isNumberValid) return console.log("number is not valid");
+    if(!isEmailValid) return console.log("email id is not valid");
+    return null;
 }
