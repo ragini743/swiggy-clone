@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { restaurantListData } from "../utils/constant";
 import RestaurantList from "./RestaurantList";
 import ScrollableFood from "./ScrollableFood";
 import RestaurantChain from "./RestaurantChain";
-import LoadingState from "./LoadingState";
+
 import Footer from "./Footer";
-import { ProMotedItem } from "./RestoLoading";
+
 
 
 const Body = () => {

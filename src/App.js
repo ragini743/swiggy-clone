@@ -5,6 +5,7 @@ import Header from './components/Header';
 import SignIn from './form/SignIn';
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
+import HelpSUpport from './help/HelpSUpport';
 
 function App() {
   return (
@@ -18,11 +19,7 @@ function App() {
 
 export default App;
 export const appRouter = createBrowserRouter([
-  {
-    path:"form",
-    element:<SignIn />,
-    
-  },
+
   {
     path:"/",
     element:<App />,
@@ -36,10 +33,7 @@ export const appRouter = createBrowserRouter([
         path:"/search",
         element:"",
       },
-      {
-        path:"/help",
-        element:"",
-      },
+     
       {
         path:"/cart",
         element:"",
@@ -48,9 +42,20 @@ export const appRouter = createBrowserRouter([
         path:"/restaurant/:resId",
         element:<RestaurantMenu />,
       },
+      {
+        path:"/support",
+        element:<HelpSUpport />,
+      },
     ],
+    
     errorElement:<Error />,
 
   },
-  {}
+  {
+    path:"form",
+    element:<SignIn />,
+    
+  },
+
+  
 ])

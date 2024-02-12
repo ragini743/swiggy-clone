@@ -38,7 +38,7 @@ const handleValidation = () =>{
       <form className='flex flex-col justify-center p-4 ' onSubmit={(e)=>e.preventDefault()} >
          <div className='text-lg cursor-pointer'>
             <h1 className='text-[2rem] font-bold'>{isSignInForm?"Sign up":"Login"}</h1>
-            <h1 className='mt-2'>or <span className='text-orange-500' onClick={toggleButton}>{isSignInForm?"or login to your account":"create an account"}</span></h1>
+            <h1 className='mt-2'>or <span className='text-orange-500 ' onClick={toggleButton}>{isSignInForm?"or login to your account":"create an account"}</span></h1>
             <div>
                 <img src="" alt=''>
 
@@ -69,7 +69,7 @@ const handleValidation = () =>{
         <p className='text-red-600 text-right font-bold'>{error?error:null}</p>
         <div className=' text-white bg-orange-500 mt-5 text-center 
         cursor-pointer' onClick={handleValidation}>
-       <button type='submit'className='pl-4 py-4  '>{isSignInForm?"Continue":"Login"}</button>
+       <button type='submit'className='pl-4 py-3 font-bold text-lg '>{isSignInForm?"Continue":"Login"}</button>
         </div>
       
         <p className='text-slate-600 mt-2 cursor-pointer'>{isSignInForm?"By creating an account":"By clicking on Login"} , I accept the<span className='text-black'> Terms & Conditions & Privacy Policy

@@ -20,7 +20,7 @@ const arrayOfContent = [
     src: "https://static.thenounproject.com/png/1009849-200.png",
     text: "Help",
     id: "3",
-    href:"/help"
+    href:"/support"
   },
   {
     src: "https://cdn-icons-png.freepik.com/256/456/456283.png",
@@ -38,7 +38,7 @@ const arrayOfContent = [
 export const Content = ({ content }) => {
   return (
     <div className=" ">
-    <Link to="/form" className="flex items-center mr-2 justify-center flex-grow basis-0">
+    <Link to={content.href} className="flex items-center mr-2 justify-center flex-grow basis-0">
       
       <div className="w-[20%]  mr-1 md:mr-2 ">
         <img
