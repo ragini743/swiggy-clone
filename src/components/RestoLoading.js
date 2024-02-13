@@ -6,12 +6,12 @@ const { name , cloudinaryImageId , avgRating , areaName , sla , cuisines } =item
 const url = s + cloudinaryImageId;
 return (
   <div className='relative'>
-    <div className=" text-[.5rem] sm:text-sm mb-20">
+    <div className=" text-[.5rem] sm:text-sm mb-8 sm:mb-10 md:mb-14">
       <div className="rounded-xl w-[100%] ">
         <img
           src={url}
           alt=""
-          className=" w-96 h-44 object-cover object-center rounded-xl"
+          className=" w-96 h-24 sm:h-40 md:h-44 object-cover object-center rounded-xl"
         ></img>
       </div>
       <div className="md:text-[1rem]">
@@ -50,7 +50,7 @@ const style={
 return(
 <div className='reltive'>
 <div className="flex justify-center relative">
-        <div className="label111 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold py-2 md:text-2xl left-0 right-0 top-[130px] shadow-lg "style={style}>
+        <div className="label111 label22 absolute overflow-hidden text-center rounded-xl z-10 sm:font-extrabold  py-2 sm:text-lg left-0 right-0 text-[0.5rem] top-16 sm:top-28 md:top-[130px] shadow-2xl "style={style}>
           {data}
         </div>
         </div>

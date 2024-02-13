@@ -26,9 +26,7 @@ const handleValidation = () =>{
       checkValidData(number.current.value)
     setError(checkValidData)
     }
-  //   const message = checkValidData()
-  // console.log(message)
-  // setError(message)
+
   
 }
 
