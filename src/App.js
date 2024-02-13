@@ -6,6 +6,7 @@ import SignIn from './form/SignIn';
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
 import HelpSUpport from './help/HelpSUpport';
+import PartenerBoarding from './help/PartenerBoarding';
 
 function App() {
   return (
@@ -45,7 +46,11 @@ export const appRouter = createBrowserRouter([
       {
         path:"/support",
         element:<HelpSUpport />,
-      },
+       },
+      {
+        path:"/support/issue/partener-onboarding",
+        element:<PartenerBoarding />
+      }
     ],
     
     errorElement:<Error />,
