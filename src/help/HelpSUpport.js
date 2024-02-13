@@ -14,6 +14,7 @@ const HelpSUpport = () => {
   useEffect(()=>{
     titleFetchData()
   },[])
+  console.log(listTitle.length)
   if(listTitle.length===0){
     return null
   }
@@ -32,6 +33,7 @@ const HelpSUpport = () => {
     
             {listTitle.map((title)=>{
               return (
+                console.log("t",title),
               
                 <Link to={"issue/"+title.type}>
                   {/* <h1 className='hover:bg-white hover:text-yellow-600'>{title.title}</h1> */}

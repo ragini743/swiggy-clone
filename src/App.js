@@ -6,7 +6,7 @@ import SignIn from './form/SignIn';
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
 import HelpSUpport from './help/HelpSUpport';
-import PartenerBoarding from './help/IssueComponent';
+import IssueComponent from './help/IssueComponent';
 
 function App() {
   return (
@@ -49,7 +49,7 @@ export const appRouter = createBrowserRouter([
        },
       {
         path:"/support/issue/:type",
-        element:<PartenerBoarding />
+        element:<IssueComponent />
       }
     ],
     
