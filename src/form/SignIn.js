@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { checkValidData } from './validate'
+import { checkValidData, validateLogin } from './validate'
 
 const SignIn = () => {
   const [isSignInForm,setIsSignInForm] = useState(false)
@@ -13,19 +13,30 @@ const number = useRef(null);
 
 
 const handleValidation = () =>{
-  
-  if(email.current!==null){
-    return(
-     console.log("email",email.current.value), 
-     console.log("asdfghj",number.current.value),
-   checkValidData(email.current.value,email.current.value),
-   setError(checkValidData)
-  
-  )
-    }else {
-      checkValidData(number.current.value)
-    setError(checkValidData)
+  if (!isSignInForm) { 
+    const isValid = validateLogin(number.current.value); 
+    if (isValid) {
+      alert("Thank you for logging in!");
+      number.current.value=null 
+      setError("")
+    } else {
+      setError("Invalid phone number. Please enter a 10-digit number."); // Set 
     }
+  }
+  // alert("thanks for LoginIn form")
+  
+  // if(email.current!==null){
+  //   return(
+  //    console.log("email",email.current.value), 
+  //    console.log("asdfghj",number.current.value),
+  //  checkValidData(number.current.value,email.current.value),
+  //  setError(checkValidData)
+  
+  // )
+  //   }else {
+  //     checkValidData(number.current.value)
+  //   setError(checkValidData)
+  //   }
 
   
 }

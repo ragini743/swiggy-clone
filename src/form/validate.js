@@ -7,3 +7,10 @@ export const checkValidData = (email,number) =>{
     if(!isEmailValid) return "email id is not valid";
     return null;
 }
+
+
+export const validateLogin = (number) => {
+    const numberRegex = /^[0-9]{10}$/; // Regex for a 10-digit number
+    const numberValid = numberRegex.test(number);
+    return numberValid; // Return true if the number matches the regex, otherwise return false
+};

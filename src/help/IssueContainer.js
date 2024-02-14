@@ -12,7 +12,7 @@ export const IssueList = ({ data }) => {
   
 
   return (
-    <div className=" py-4  mx-auto overflow-scroll pb-10">
+    <div className=" py-4  mx-auto overflow-scroll pb-5">
       <div className="pl-4">
         <h1 className="text-xs sm:text-lg text-black">{title}</h1>
         <h2 className="text-[0.5rem] sm:text-sm text-black pb-4">
