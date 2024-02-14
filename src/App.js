@@ -6,7 +6,8 @@ import SignIn from './form/SignIn';
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
 import HelpSUpport from './help/HelpSUpport';
-import IssueComponent from './help/IssueComponent';
+
+import IssueType from './help/IssueType';
 
 function App() {
   return (
@@ -49,7 +50,7 @@ export const appRouter = createBrowserRouter([
        },
       {
         path:"/support/issue/:type",
-        element:<IssueComponent />
+        element:<IssueType />
       }
     ],
     

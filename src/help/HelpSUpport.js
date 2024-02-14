@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PartenerBoarding from './IssueComponent'
+import PartenerBoarding from './IssueType'
 import { Link } from 'react-router-dom'
 import TitleComponent from './TitleComponent'
 
