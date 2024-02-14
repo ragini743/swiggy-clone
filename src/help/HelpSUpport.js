@@ -12,7 +12,7 @@ const HelpSUpport = () => {
   const titleFetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/support?");
     const json = await data.json();
-  //  console.log("json",json)
+
     setListTitle(json.data.issueTypes.data);
   };
   useEffect(() => {
@@ -22,18 +22,18 @@ const HelpSUpport = () => {
   if (listTitle.length === 0) {
     return null;
   }
-  console.log('selectedIssueType', selectedIssueType);
+
   return (
-    <div className="pt-16 md:pt-28 bg-blue-500 text-white px-10 h-[100vh]">
-      <div className="mb-2">
+    <div className="pt-16 md:pt-28 bg-blue-500 text-white px-10 h-[100vh] overflow-hidden">
+      <div className="mb-2 md:my-4 ml-[10%]">
         <div>
-          <h1 className="font-bold text-2xl">Help & Support</h1>
+          <h1 className="font-bold text-2xl md:text-3xl">Help & Support</h1>
           <p>Let's take a step ahead and help you better.</p>
         </div>
       </div>
 
-      <div className="bg-white mt-8 flex ">
-        <aside className="bg-sky-100 text-gray-600 px-10 pt-5 pb-10   font-bold md:text-lg h-[100vh]">
+      <div className="bg-white mt-8 flex w-[80%] mx-auto">
+        <aside className="bg-sky-100 text-gray-600 px-5 pt-5 pb-10 w-[30%]  font-bold md:text-lg h-[100vh] overflow-hidden">
           {listTitle.map((title) => {
             return (
               // <Link to={"issue/" + title.type}>
@@ -42,7 +42,7 @@ const HelpSUpport = () => {
             );
           })}
         </aside>
-        <IssueType issueType={selectedIssueType} />
+        <IssueType selectedIssueType={selectedIssueType} setSelectedIssueType={setSelectedIssueType} className="w-[70%]" />
       </div>
     </div>
   );

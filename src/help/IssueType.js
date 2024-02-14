@@ -1,16 +1,14 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 
-import TitleComponent from './TitleComponent'
 import IssueContainer from './IssueContainer'
 
-const IssueType = ({issueType}) => {
-  console.log('type::::', issueType)
+const IssueType = ({selectedIssueType,setSelectedIssueType}) => {
+
   return (
-    <div>
-       <div className='w-[80%] md:w-[50%] mx-auto'>
+    <div className='overflow-scroll h-[100vh] w-[70%]'>
+       <div className='w-[80%] mx-[10%]'>
         {/* <TitleComponent /> */}
-        <IssueContainer issueType={issueType}/>
+        <IssueContainer issueType={selectedIssueType} setIssueType={setSelectedIssueType} />
        </div>
        
      </div>
