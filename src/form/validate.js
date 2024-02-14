@@ -1,12 +1,14 @@
-export const checkValidData = (email,number) =>{
-    const isEmailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
-    
-    const isNumberValid = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(number)
-
-    if(!isNumberValid) return "number is not valid";
-    if(!isEmailValid) return "email id is not valid";
-    return null;
-}
+export const validateSignUp = (number, name, email) => {
+    const numberRegex = /^[0-9]{10}$/; // Regex for a 10-digit number
+    const nameRegex = /^[a-zA-Z\s]+$/; // Regex for alphabetic characters and spaces only
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for a basic email format
+  
+    return {
+      number: numberRegex.test(number),
+      name: nameRegex.test(name),
+      email: emailRegex.test(email),
+    };
+  };
 
 
 export const validateLogin = (number) => {
