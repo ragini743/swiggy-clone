@@ -48,10 +48,10 @@ export const appRouter = createBrowserRouter([
         path:"/support",
         element:<HelpSUpport />,
        },
-      {
-        path:"/support/issue/:type",
-        element:<IssueType />
-      }
+      // {
+      //   path:"/support/issue/:type",
+      //   element:<IssueType />
+      // }
     ],
     
     errorElement:<Error />,

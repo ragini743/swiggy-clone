@@ -7,7 +7,7 @@ import IssueType from "./IssueType";
 
 const HelpSUpport = () => {
   const [listTitle, setListTitle] = useState([]);
-  const [selectedIssueType, setSelectedIssueType] = useState('legal');
+  const [selectedIssueType, setSelectedIssueType] = useState('partner-onboarding');
 
   const titleFetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/support?");
@@ -32,8 +32,8 @@ const HelpSUpport = () => {
         </div>
       </div>
 
-      <div className="bg-white mt-8 flex">
-        <aside className="bg-sky-100 text-gray-600 px-10 pt-5 pb-10 float-left  font-bold md:text-lg h-[100vh]">
+      <div className="bg-white mt-8 flex ">
+        <aside className="bg-sky-100 text-gray-600 px-10 pt-5 pb-10   font-bold md:text-lg h-[100vh]">
           {listTitle.map((title) => {
             return (
               // <Link to={"issue/" + title.type}>
