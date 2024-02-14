@@ -4,6 +4,7 @@ import { validateSignUp, validateLogin } from "./validate";
 const SignIn = () => {
   const [isSignInForm, setIsSignInForm] = useState(false);
   const [error, setError] = useState(null);
+  const [signInError,setSignInError] = useState(null)
   const toggleButton = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -14,41 +15,48 @@ const SignIn = () => {
 
   const handleValidation = () => {
     if (!isSignInForm) {
-      console.log(number.current.value === "");
-      if (number.current.value === "")
-        return setError(
-          "Invalid phone number. Please enter a 10-digit number."
-        );
-      const isValid = validateLogin(number.current.value);
-      if (isValid) {
-        return (
-          alert("Thank you for Login!!!"),
-          (number.current.value = null),
-          setError("")
-        );
+      if (number !== "") {
+        const isValid = validateLogin(number.current.value);
+        console.log("isValid",isValid)
+        if (isValid) {
+          alert("Thank you for Login!!!");
+          number.current.value = null;
+          setError("");
+        } else {
+          setError("Invalid phone number. Please enter a 10-digit number.");
+        }
       } else {
-        setError("Invalid phone number. Please enter a 10-digit number."); // Set
-      }  else {
-    
-      const isValidSignUp = validateSignUp(
-        number.current.value,
-        name.current.value,
-        email.current.value
-      );
-      if (isValid.number && isValid.name && isValid.email) {
-        alert("Thank you !");
-        number.current.value = null;
-        name.current.value = null;
-        email.current.value = null;
-        setError("");
-      } else {
-        let errorMessage = "";
-        if (!isValidSignUp.number) errorMessage += "Invalid number. ";
-        if (!isValidSignUp.name) errorMessage += "Invalid name. ";
-        if (!isValidSignUp.email) errorMessage += "Invalid email. ";
-        setError(errorMessage); // Set error message for invalid inputs
+        setError("Phone number cannot be empty.");
       }
-    }
+    } else if(isSignInForm) {
+    
+      if (
+        number.current.value === "" ||
+        name.current.value === "" ||
+        email.current.value === ""
+      ) {
+        setSignInError("Please fill in all fields.");
+      } else {
+        const isValidSignUp = validateSignUp(
+          number.current.value,
+          name.current.value,
+          email.current.value
+        );
+        console.log("validate",validateSignUp)
+        if (isValidSignUp) {
+          alert("Thank you !");
+          number.current.value = null;
+          name.current.value = null;
+          email.current.value = null;
+          setSignInError("");
+        } else {
+          let errorMessage = "";
+          if (!isValidSignUp.number) errorMessage += "Invalid number. ";
+          if (!isValidSignUp.name) errorMessage += "Invalid name. ";
+          if (!isValidSignUp.email) errorMessage += "Invalid email. ";
+          setSignInError(errorMessage);
+        }
+      }
     }
   };
 
@@ -89,7 +97,12 @@ const SignIn = () => {
           {isSignInForm ? (
             <div className="flex flex-col border-b-2 border-l-2 border-r-2 border-gray-400 pl-4 py-4">
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" className="outline-none"></input>
+              <input
+                ref={name}
+                type="text"
+                id="name"
+                className="outline-none"
+              ></input>
             </div>
           ) : null}
 
