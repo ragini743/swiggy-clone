@@ -19,7 +19,7 @@ console.log("isActive",isActive)
     ));
 
   return (
-    <div className=" py-4  mx-auto overflow-scroll pb-5">
+    <div className=" pt-4  mx-auto overflow-scroll ">
       <div className="pl-4 pb-4">
         <div className="flex justify-between w-full items-center">
           <h1 className="text-xs sm:text-lg text-black">{title}</h1>
@@ -27,7 +27,7 @@ console.log("isActive",isActive)
             <img src={isActive?"./collapse-arrow.png":"./down-arrow.png"} alt=""></img>
           </div>
         </div>
-       {isActive?(<div>
+       {isActive?(<div className="">
           <h2 className="text-[0.5rem] sm:text-sm text-black pb-4">
             {description ? descriptionList : null}
           </h2>
@@ -104,7 +104,7 @@ const IssueContainer = ({ issueType, setIssueType }) => {
   }
 
   return (
-    <div className="pt-4 issuContianer">
+    <div className="pt-4 issuContiane">
       <h1 className="text-black font-bold text-xl mb-4">{issueType.title}</h1>
       {issueData.map((data, index) => {
         return <IssueList key={data.id} data={data} isActive={activeId===data.id ?true:false} isShow={isShow} />;

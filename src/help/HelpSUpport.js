@@ -33,7 +33,7 @@ const HelpSUpport = () => {
       </div>
 
       <div className="bg-white mt-8 flex w-[80%] mx-auto">
-        <aside className="bg-sky-100 text-gray-600 px-5 pt-5 pb-10 w-[30%]  font-bold md:text-lg h-[100vh] overflow-hidden">
+        <aside className="bg-sky-100 text-gray-600 px-8 pt-8 pb-10 w-[25%]  font-bold md:text-lg h-[100vh] overflow-hidden">
           {listTitle.map((title) => {
             return (
               // <Link to={"issue/" + title.type}>
@@ -42,7 +42,7 @@ const HelpSUpport = () => {
             );
           })}
         </aside>
-        <IssueType selectedIssueType={selectedIssueType} setSelectedIssueType={setSelectedIssueType} className="w-[70%]" />
+        <IssueType selectedIssueType={selectedIssueType} setSelectedIssueType={setSelectedIssueType} className="w-[75%]" />
       </div>
     </div>
   );
