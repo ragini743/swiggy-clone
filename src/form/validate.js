@@ -12,7 +12,7 @@ export const validateSignUp = (number, name, email) => {
 
 
 export const validateLogin = (number) => {
-    const numberRegex = /^[0-9]{10}$/; // Regex for a 10-digit number
+    const numberRegex = /^[0-9]{10}$/; 
     const numberValid = numberRegex.test(number);
-    return numberValid; // Return true if the number matches the regex, otherwise return false
+    return numberValid; 
 };

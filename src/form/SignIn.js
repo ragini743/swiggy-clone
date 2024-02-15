@@ -4,7 +4,7 @@ import { validateSignUp, validateLogin } from "./validate";
 const SignIn = () => {
   const [isSignInForm, setIsSignInForm] = useState(false);
   const [error, setError] = useState(null);
-  const [signInError,setSignInError] = useState(null)
+  const [signInError, setSignInError] = useState(null);
   const toggleButton = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -17,7 +17,7 @@ const SignIn = () => {
     if (!isSignInForm) {
       if (number !== "") {
         const isValid = validateLogin(number.current.value);
-        console.log("isValid",isValid)
+        console.log("isValid", isValid);
         if (isValid) {
           alert("Thank you for Login!!!");
           number.current.value = null;
@@ -28,22 +28,23 @@ const SignIn = () => {
       } else {
         setError("Phone number cannot be empty.");
       }
-    } else if(isSignInForm) {
-    
+    } else if (isSignInForm) {
       if (
         number.current.value === "" ||
         name.current.value === "" ||
         email.current.value === ""
       ) {
+       
         setSignInError("Please fill in all fields.");
+        
       } else {
         const isValidSignUp = validateSignUp(
           number.current.value,
           name.current.value,
           email.current.value
         );
-        console.log("validate",validateSignUp)
-        if (isValidSignUp) {
+        console.log("validate", isValidSignUp);
+        if (isValidSignUp.number&&isValidSignUp.name&&isValidSignUp.email) {
           alert("Thank you !");
           number.current.value = null;
           name.current.value = null;
@@ -91,7 +92,7 @@ const SignIn = () => {
               min="0"
               max="0"
             ></input>
-            <p className="text-red-600">{error ? setError : null}</p>
+          
           </div>
 
           {isSignInForm ? (
@@ -122,7 +123,7 @@ const SignIn = () => {
           {isSignInForm ? " Have a referral code ? " : null}
         </p>
         <p className="text-red-600 text-right font-bold">
-          {error ? error : null}
+          {isSignInForm ? signInError : error}
         </p>
         <div
           className=" text-white bg-orange-500 mt-5 text-center 
