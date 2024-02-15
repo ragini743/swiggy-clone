@@ -6,8 +6,8 @@ import {
   partnerIssuedata,
 } from "../utils/issueData";
 
-export const IssueList = ({ data }) => {
-  const [activeId, setActiveId] = useState(false);
+export const IssueList = ({ data ,isActive,isShow}) => {
+console.log("isActive",isActive)
   const { title, hyperLink, description, hyperLinkText } = data;
   console.log(data);
   let descriptionList;
@@ -20,13 +20,14 @@ export const IssueList = ({ data }) => {
 
   return (
     <div className=" py-4  mx-auto overflow-scroll pb-5">
-      <div className="pl-4">
-        <div>
+      <div className="pl-4 pb-4">
+        <div className="flex justify-between w-full items-center">
           <h1 className="text-xs sm:text-lg text-black">{title}</h1>
-          <div></div>
+          <div className="w-[5%] " onClick={()=>isShow(data.id)}>
+            <img src={isActive?"./collapse-arrow.png":"./down-arrow.png"} alt=""></img>
+          </div>
         </div>
-
-        <div>
+       {isActive?(<div>
           <h2 className="text-[0.5rem] sm:text-sm text-black pb-4">
             {description ? descriptionList : null}
           </h2>
@@ -62,7 +63,8 @@ export const IssueList = ({ data }) => {
               </h3>
             </div>
           ) : null}
-        </div>
+        </div>):null}
+        
       </div>
       <hr className="shadow-md "></hr>
     </div>
@@ -72,7 +74,10 @@ export const IssueList = ({ data }) => {
 const IssueContainer = ({ issueType, setIssueType }) => {
   // console.log('issuecontainertype', issueType);
   const [issueData, setIssueData] = useState([]);
-
+  const [activeId, setActiveId] = useState(0);
+  const isShow = (itemId) => {
+    setActiveId(itemId);
+}
   const partnerFetchData = async () => {
     let resolvedData;
 
@@ -102,7 +107,7 @@ const IssueContainer = ({ issueType, setIssueType }) => {
     <div className="pt-4 issuContianer">
       <h1 className="text-black font-bold text-xl mb-4">{issueType.title}</h1>
       {issueData.map((data, index) => {
-        return <IssueList key={data.id} data={data} />;
+        return <IssueList key={data.id} data={data} isActive={activeId===data.id ?true:false} isShow={isShow} />;
       })}
     </div>
   );
