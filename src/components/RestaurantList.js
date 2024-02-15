@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Restaurants from './Restaurants'
 import LoadingState from './LoadingState'
 import { PromotedLableTwo } from './Restaurants' 
+import { Link } from 'react-router-dom'
 
 
 const RestaurantList = ({listOfRestaurant ,setItems}) => {
@@ -9,7 +10,7 @@ const RestaurantList = ({listOfRestaurant ,setItems}) => {
 
 const [onlineFood ,setOnlineFood] = useState([])
 const RestaurantWithPromoted2 = PromotedLableTwo()
-console.log("as",RestaurantWithPromoted2)
+// console.log("as",RestaurantWithPromoted2)
 const data = listOfRestaurant.card.card.gridElements.infoWithStyle.restaurants
 useEffect(()=>{
   setOnlineFood(data)
@@ -23,8 +24,15 @@ if(onlineFood.length ===0){return null}
         
         <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '> 
           {onlineFood.map((restaurantData,index) =>{return (
-            restaurantData.info.aggregatedDiscountInfoV3?(<RestaurantWithPromoted2 restaurantData={restaurantData} />):
-            <Restaurants className="" key={restaurantData.info.id} restaurantData={restaurantData} index = {index}  />
+            
+            
+            restaurantData.info.aggregatedDiscountInfoV3?(
+              <Link to={"/restaurant/"+restaurantData.info.id} key={restaurantData.info.id} >
+            <RestaurantWithPromoted2 restaurantData={restaurantData} /></Link>):
+           
+            (  <Link to={"/restaurant/"+restaurantData.info.id} key={restaurantData.info.id} >
+            <Restaurants className="" key={restaurantData.info.id} restaurantData={restaurantData} index = {index}  /> </Link>)
+           
 
           )})}
        

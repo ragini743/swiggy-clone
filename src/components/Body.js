@@ -4,7 +4,7 @@ import { restaurantListData } from "../utils/constant";
 import RestaurantList from "./RestaurantList";
 import ScrollableFood from "./ScrollableFood";
 import RestaurantChain from "./RestaurantChain";
-
+import LoadingState from "./LoadingState";
 import Footer from "./Footer";
 
 
@@ -89,7 +89,7 @@ const Body = () => {
       </div>
       <RestaurantChain topRestaurant={topRestaurant} />
       
-    {/* <LoadingState items={items} setItems={setItems} /> */}
+    <LoadingState items={items} setItems={setItems} />
    
       <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
       </div>

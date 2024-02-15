@@ -4,6 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
 import RestoLoading, { PromotedLable } from './RestoLoading';
 import LoaderSkelton from './LoaderSkelton';
+import { Link } from 'react-router-dom';
 
 const LoadingState = ({items ,setItems}) => {
  
@@ -67,7 +68,7 @@ const LoadingState = ({items ,setItems}) => {
         <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '>
           {items.map((item) => (
            
-            item.info.aggregatedDiscountInfoV3 ?(<RestaurantWithPromoted item={item} />) :(<RestoLoading key={item.info.id} item={item} />)
+            item.info.aggregatedDiscountInfoV3 ?( <Link to={"/restaurant/"+item.info.id} key={item.info.id} ><RestaurantWithPromoted item={item} /></Link>) :(<Link to={"/restaurant/"+item.info.id} key={item.info.id} ><RestoLoading key={item.info.id} item={item} /></Link>)
            
           
           ))}

@@ -40,9 +40,9 @@ export default Restaurants;
 
 export const PromotedLableTwo = () => {
   return (props) => {
-    console.log("props", props);
+    // console.log("props", props);
     const { restaurantData } = props;
-    console.log("resto", restaurantData);
+    // console.log("resto", restaurantData);
     const discountHeader =
       restaurantData.info?.aggregatedDiscountInfoV3.header ||
       restaurantData.info.aggregatedDiscountInfoV2.header;
