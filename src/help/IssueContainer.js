@@ -8,18 +8,22 @@ import {
 
 export const IssueList = ({ data }) => {
 
-  const { title, hyperLink, description, hyperLinkText } = data;
-  
+  const { title, hyperLink, description, hyperLinkText } = data ;
+  console.log(data.options[0])
+let descriptionList
+  if(description) ( descriptionList = description.split("\n").map((item, index) => (
+    <li key={index} className="list-none">{item}</li>
+  )))
 
   return (
     <div className=" py-4  mx-auto overflow-scroll pb-5">
       <div className="pl-4">
         <h1 className="text-xs sm:text-lg text-black">{title}</h1>
         <h2 className="text-[0.5rem] sm:text-sm text-black pb-4">
-          {description ? description : null}{" "}
+          {description ? descriptionList : null}
         </h2>
-        <h2 className="text-orange-600 text-[0.5rem] sm:text-sm pb-4">
-          <a href={hyperLink ? hyperLink : null}>{hyperLinkText}</a>
+        <h2 className="text-orange-400 font-semibold text-[0.5rem] sm:text-sm pb-4">
+          <a href={hyperLink ? hyperLink : null} rel="noreferrer" target="_blank">{hyperLinkText}</a>
         </h2>
 
         {data.options.emailId !== undefined ? (
@@ -27,7 +31,13 @@ export const IssueList = ({ data }) => {
             <a href={data.options.emailId}>send a mail</a>
           </div>
         ) : null}
-        <h3>{data.options.waitTime ? data.options.waitTime : null}</h3>
+        {data.options.length!==0?( <div className="">
+          <div className="border-2 border-orange-400 text-orange-400 font-bold inline p-2">  <a href=" mailto:partnersupport@swiggy.in?subject=I%20want%20to%20partner%20my%20restaurant%20with%20Swiggy"rel="noreferrer" target="_blank">Send an email</a>
+          </div>
+          <h3 className="text-black text-[0.5rem] sm:text-xs mt-3">
+            {data.options[0].waitTime}</h3>
+        </div>):null}
+      
       </div>
       <hr className="shadow-md "></hr>
     </div>
@@ -35,7 +45,7 @@ export const IssueList = ({ data }) => {
 };
 
 const IssueContainer = ({issueType ,setIssueType}) => {
-  console.log('issuecontainertype', issueType);
+  // console.log('issuecontainertype', issueType);
   const [issueData, setIssueData] = useState([]);
 
   const partnerFetchData = async () => {
@@ -48,7 +58,7 @@ const IssueContainer = ({issueType ,setIssueType}) => {
     else if (issueType.type === "faq")
       resolvedData = faqIssuedata;
   
-    console.log("resolvedData:", resolvedData);
+    // console.log("resolvedData:", resolvedData);
    
     if (resolvedData) {
       setIssueData(resolvedData.data.issues.data);
