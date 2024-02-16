@@ -6,8 +6,9 @@ import {
   partnerIssuedata,
 } from "../utils/issueData";
 
-export const IssueList = ({ data ,isActive,isShow}) => {
-console.log("isActive",isActive)
+export const IssueList = ({ data}) => {
+  const [isActive,setIsActive] =useState(false)
+
   const { title, hyperLink, description, hyperLinkText } = data;
   console.log(data);
   let descriptionList;
@@ -23,7 +24,10 @@ console.log("isActive",isActive)
       <div className="pl-4 pb-4">
         <div className="flex justify-between w-full items-center">
           <h1 className="text-xs sm:text-lg text-black">{title}</h1>
-          <div className="w-[5%] " onClick={()=>isShow(data.id)}>
+          <div className="w-[5%] " onClick={()=>
+          
+          setIsActive(!isActive)
+          }>
             <img src={isActive?"./collapse-arrow.png":"./down-arrow.png"} alt=""></img>
           </div>
         </div>
@@ -72,12 +76,10 @@ console.log("isActive",isActive)
 };
 
 const IssueContainer = ({ issueType, setIssueType }) => {
-  // console.log('issuecontainertype', issueType);
+ 
   const [issueData, setIssueData] = useState([]);
-  const [activeId, setActiveId] = useState(0);
-  const isShow = (itemId) => {
-    setActiveId(itemId);
-}
+  
+ 
   const partnerFetchData = async () => {
     let resolvedData;
 
@@ -107,7 +109,7 @@ const IssueContainer = ({ issueType, setIssueType }) => {
     <div className="pt-4 issuContiane">
       <h1 className="text-black font-bold text-xl mb-4">{issueType.title}</h1>
       {issueData.map((data, index) => {
-        return <IssueList key={data.id} data={data} isActive={activeId===data.id ?true:false} isShow={isShow} />;
+        return <IssueList key={data.id} data={data} />;
       })}
     </div>
   );
