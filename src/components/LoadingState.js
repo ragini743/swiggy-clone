@@ -68,7 +68,9 @@ const LoadingState = ({items ,setItems}) => {
         <div className='mt-5 grid grid-cols-2 md:grid-cols-4 gap-10 grid-flow-row-dense relative '>
           {items.map((item) => (
            
-            item.info.aggregatedDiscountInfoV3 ?( <Link to={"/restaurant/"+item.info.id} key={item.info.id} ><RestaurantWithPromoted item={item} /></Link>) :(<Link to={"/restaurant/"+item.info.id} key={item.info.id} ><RestoLoading key={item.info.id} item={item} /></Link>)
+            item.info.aggregatedDiscountInfoV3 ?( <Link to={"/restaurant/"+item.info.id} key={item.info.id} ><RestaurantWithPromoted item={item} /></Link>) :(<Link to={"/restaurant/"+item.info.id} key={item.info.id} >
+              console.log(item)
+              <RestoLoading key={item.info.id} item={item} /></Link>)
            
           
           ))}

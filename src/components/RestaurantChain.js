@@ -23,7 +23,8 @@ const RestaurantChain = ({topRestaurant}) => {
       <h1 className='font-bold md:text-2xl mb-6 sm:mb-10'>{title}</h1>
        <div className='overflow-x-auto  w-[100%] flex items-center '>
         {resData.map((resInfo) =>{
-         return (<Link to={"/restaurant/"+resInfo.info.id} key={resInfo.info.id} className='mr-[5%]'>
+         return (<Link to={`/restaurant/${(resInfo.info.name)}-${(resInfo.info.id)}`} key={resInfo.info.id} className='mr-[5%]'>
+          {console.log("resInfo",resInfo)}
          <TopRestaurant  resInfo={resInfo} />
          </Link>
          )

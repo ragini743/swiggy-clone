@@ -3,7 +3,7 @@ import { menu_URL } from '../utils/constant'
 import { useParams } from 'react-router-dom'
 
 const RestaurantMenu = () => {
-    const params=useParams()
+    const params = useParams()
     console.log("params1",params )
     console.log(useParams)
     const [resMenu,setResMenu] =useState([])
