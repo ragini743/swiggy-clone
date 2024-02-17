@@ -9,7 +9,7 @@ export const  swiggy_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=
 
 export const s="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" ;
 
-export const menu_URL ="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.4990941&lng=81.8582923&restaurantId=310035"
+export const menu_URL ="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.4990941&lng=81.8582923&restaurantId="
 
 
 export const restaurantListData = {
