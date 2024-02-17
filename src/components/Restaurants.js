@@ -27,7 +27,7 @@ const Restaurants = ({ restaurantData, index }) => {
             <span>. {sla.slaString}</span>
           </div>
           <div className="pt-1 overflow-hidden text-ellipsis break-words break-all">
-            {cuisines.join(",")}{" "}
+            {cuisines.join(",")}
           </div>
           <p className="pt-1">{areaName}</p>
         </div>
