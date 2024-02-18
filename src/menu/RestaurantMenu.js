@@ -7,22 +7,23 @@ const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
   const [labelContainer, setLabelContainer] = useState([]);
- const [restaurantCategory,setRestaurantCategory] = useState([])
+ const [category,setCategory] = useState([])
   // const [resMenu,setResMenu] = useState([])
   // console.log("params1",params )
   const resMenu = useRestaurantMenu(resId);
   console.log("asdfg", resMenu);
+  console.log("category",category)
 
   useEffect(() => {
     if(resMenu){
       setLabelContainer(
         resMenu.data.cards[1].card.card.gridElements.infoWithStyle.offers
       );
-      setRestaurantCategory(resMenu.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards)
+      setCategory(resMenu.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter((c)=>c?.["card"]?.["card"]?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
     }
 
   }, [resMenu]);
-console.log("label",labelContainer)
+// console.log("label",labelContainer)
   if (resMenu === null) {
     return <shimmer />;
   }
@@ -95,7 +96,10 @@ console.log("label",labelContainer)
           </div>
         )}
       </div>
-      <RestaurantCategory />
+      <div>
+        {category.map((cardData)=>{return <RestaurantCategory cardData={cardData} />})}
+      </div>
+     
     </div>
   );
 };
