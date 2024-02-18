@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import LabelCard from "./LabelCard";
 const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
   const [labelContainer, setLabelContainer] = useState([]);
+
   // const [resMenu,setResMenu] = useState([])
   // console.log("params1",params )
   const resMenu = useRestaurantMenu(resId);
   console.log("asdfg", resMenu);
+
+  useEffect(() => {
+    if(resMenu){
+      setLabelContainer(
+        resMenu.data.cards[1].card.card.gridElements.infoWithStyle.offers
+      );
+    }
+
+  }, [resMenu]);
+console.log("label",labelContainer)
   if (resMenu === null) {
     return <shimmer />;
   }
+  if(labelContainer.length===0){return null}
   const {
     name,
     avgRating,
@@ -26,7 +39,7 @@ const RestaurantMenu = () => {
   const { message } = feeDetails;
   const { slaString } = sla;
 
-  console.log("freeDetails", resMenu.data.cards[0].card.card.info);
+  // console.log("freeDetails", resMenu.data.cards[0].card.card.info);
 
   return (
     <div className="pt-16 md:pt-28 overflow-hidden  box-border mt-10 md:w-[70%] mx-auto lg:w-[50%] text-gray-500">
@@ -52,29 +65,30 @@ const RestaurantMenu = () => {
         <div className="mr-10">{slaString}</div>
         <div className="flex">
           <div className="w-6 mr-4">
-            <img
-              src="/rs-symbol.png"
-              alt=""
-              className="w-[100%] h-full"
-            ></img>
+            <img src="/rs-symbol.png" alt="" className="w-[100%] h-full"></img>
           </div>
           {costForTwoMessage}
         </div>
       </div>
-      <div></div>
+      <div className="flex  overflow-scroll py-8">
+      {
+        labelContainer.slice(1).map((card,index)=>{return <LabelCard card={card} key={index} /> })
+      }
+      </div>
       <div className="border-gray-400 border-b-[1px] mt-10">
         {veg === true ? (
-          <div className="flex "><div className="w-10">
-            <img src="/pureVeg.png" alt=""className=""></img>
+          <div className="flex items-center ">
+            <div className="w-10">
+              <img src="/pureVeg.png" alt="" className=""></img>
             </div>
-            <h1>veg</h1>
+            <h1 className="ml-4">veg</h1>
           </div>
         ) : (
-          <div className="flex">
-            <div className="w-10"> 
-            <img src="/nonVeg.png" alt=""></img>
+          <div className="flex items-center">
+            <div className="w-10">
+              <img src="/nonVeg.png" alt=""></img>
             </div>
-            <h1>veg</h1>
+            <h1 className="ml-4">non-veg</h1>
           </div>
         )}
       </div>
