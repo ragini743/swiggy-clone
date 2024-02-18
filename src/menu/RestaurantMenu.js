@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import LabelCard from "./LabelCard";
+import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
   const [labelContainer, setLabelContainer] = useState([]);
-
+ const [restaurantCategory,setRestaurantCategory] = useState([])
   // const [resMenu,setResMenu] = useState([])
   // console.log("params1",params )
   const resMenu = useRestaurantMenu(resId);
@@ -17,6 +18,7 @@ const RestaurantMenu = () => {
       setLabelContainer(
         resMenu.data.cards[1].card.card.gridElements.infoWithStyle.offers
       );
+      setRestaurantCategory(resMenu.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards)
     }
 
   }, [resMenu]);
@@ -38,6 +40,7 @@ console.log("label",labelContainer)
   } = resMenu.data.cards[0].card.card.info;
   const { message } = feeDetails;
   const { slaString } = sla;
+  
 
   // console.log("freeDetails", resMenu.data.cards[0].card.card.info);
 
@@ -64,7 +67,7 @@ console.log("label",labelContainer)
       <div className="flex items-center font-bold text-black">
         <div className="mr-10">{slaString}</div>
         <div className="flex">
-          <div className="w-6 mr-4">
+          <div className="w-6 mr-2">
             <img src="/rs-symbol.png" alt="" className="w-[100%] h-full"></img>
           </div>
           {costForTwoMessage}
@@ -81,17 +84,18 @@ console.log("label",labelContainer)
             <div className="w-10">
               <img src="/pureVeg.png" alt="" className=""></img>
             </div>
-            <h1 className="ml-4">veg</h1>
+            <h1 className="ml-2">veg</h1>
           </div>
         ) : (
           <div className="flex items-center">
             <div className="w-10">
               <img src="/nonVeg.png" alt=""></img>
             </div>
-            <h1 className="ml-4">non-veg</h1>
+            <h1 className="ml-2">non-veg</h1>
           </div>
         )}
       </div>
+      <RestaurantCategory />
     </div>
   );
 };
