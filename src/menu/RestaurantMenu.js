@@ -3,30 +3,40 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import LabelCard from "./LabelCard";
 import RestaurantCategory from "./RestaurantCategory";
+
 const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
   const [labelContainer, setLabelContainer] = useState([]);
- const [category,setCategory] = useState([])
- const [isShowItems ,setIsShowItems ] = useState([]) 
-  
+  const [category, setCategory] = useState([]);
+  const [isVegItem, setIsVegItem] = useState(false);
   const resMenu = useRestaurantMenu(resId);
 
-
   useEffect(() => {
-    if(resMenu){
+    if (resMenu) {
       setLabelContainer(
         resMenu.data.cards[1].card.card.gridElements.infoWithStyle.offers
       );
-      setCategory(resMenu.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter((c)=>c?.["card"]?.["card"]?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+      setCategory(
+        resMenu.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
+          (c) =>
+            c?.["card"]?.["card"]?.["@type"] ===
+            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        )
+      );
     }
-
   }, [resMenu]);
-// console.log("label",labelContainer)
+  // console.log("label",labelContainer)
   if (resMenu === null) {
     return <shimmer />;
   }
-  if(labelContainer.length===0){return null}
+  if (labelContainer.length === 0) {
+    return null;
+  }
+  const handleVegItem = () => {
+    console.log("hello");
+    setIsVegItem(!isVegItem);
+  };
   const {
     name,
     avgRating,
@@ -40,9 +50,6 @@ const RestaurantMenu = () => {
   } = resMenu.data.cards[0].card.card.info;
   const { message } = feeDetails;
   const { slaString } = sla;
-  
-
-  // console.log("freeDetails", resMenu.data.cards[0].card.card.info);
 
   return (
     <div className="pt-16 md:pt-28 overflow-hidden  box-border mt-10 md:w-[70%] mx-auto lg:w-[50%] text-gray-500">
@@ -74,9 +81,9 @@ const RestaurantMenu = () => {
         </div>
       </div>
       <div className="flex  overflow-scroll py-8">
-      {
-        labelContainer.slice(1).map((card,index)=>{return <LabelCard card={card} key={index} /> })
-      }
+        {labelContainer.slice(1).map((card, index) => {
+          return <LabelCard card={card} key={index} />;
+        })}
       </div>
       <div className="border-gray-400 border-b-[1px] mt-10 pb-6">
         {veg === true ? (
@@ -88,17 +95,38 @@ const RestaurantMenu = () => {
           </div>
         ) : (
           <div className="flex items-center">
-            <div className="w-10">
-              <img src="/nonVeg.png" alt=""></img>
+            <h1 className="mr-2">Veg-Only</h1>
+            <div
+              className={`w-10 ${isVegItem?"border-green-600 bg-green-500" :"border-gray-300 bg-gray-300 "} border-[2px] h-5 flex 
+            rounded-[4px]`}
+              onClick={() => handleVegItem()}
+            >
+              <div
+                className={
+                  " w-4 flex-grow  " + 
+                  (isVegItem?" rounded-0 bg-green" :" rounded-sm p-[1px]  bg-white ")
+                  
+                }
+              ></div>
+              <div
+                className={
+                  "w-4 flex-grow  flex justify-center items-center " +
+                  (isVegItem?" rounded-sm p-[1px] bg-white" :" rounded-sm p-[1px]  bg-gray-300")
+                }
+              >
+                <span className={"w-2 h-2 inline-block rounded-full bg-sky-900"+(isVegItem?" visible":" hidden ")}>
+                  
+                </span>
+              </div>
             </div>
-            <h1 className="ml-2">non-veg</h1>
           </div>
         )}
       </div>
       <div>
-        {category.map((cardData)=>{return <RestaurantCategory cardData={cardData} />})}
+        {category.map((cardData) => {
+          return <RestaurantCategory cardData={cardData} />;
+        })}
       </div>
-     
     </div>
   );
 };
