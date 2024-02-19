@@ -11,8 +11,8 @@ const RestaurantMenu = () => {
   // const [resMenu,setResMenu] = useState([])
   // console.log("params1",params )
   const resMenu = useRestaurantMenu(resId);
-  console.log("asdfg", resMenu);
-  console.log("category",category)
+  // console.log("asdfg", resMenu);
+  // console.log("category",category)
 
   useEffect(() => {
     if(resMenu){
@@ -79,7 +79,7 @@ const RestaurantMenu = () => {
         labelContainer.slice(1).map((card,index)=>{return <LabelCard card={card} key={index} /> })
       }
       </div>
-      <div className="border-gray-400 border-b-[1px] mt-10">
+      <div className="border-gray-400 border-b-[1px] mt-10 pb-6">
         {veg === true ? (
           <div className="flex items-center ">
             <div className="w-10">
