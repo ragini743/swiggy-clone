@@ -8,11 +8,10 @@ const RestaurantMenu = () => {
   const { resId } = params;
   const [labelContainer, setLabelContainer] = useState([]);
  const [category,setCategory] = useState([])
-  // const [resMenu,setResMenu] = useState([])
-  // console.log("params1",params )
+ const [isShowItems ,setIsShowItems ] = useState([]) 
+  
   const resMenu = useRestaurantMenu(resId);
-  // console.log("asdfg", resMenu);
-  // console.log("category",category)
+
 
   useEffect(() => {
     if(resMenu){

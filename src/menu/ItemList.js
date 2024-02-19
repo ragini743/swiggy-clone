@@ -5,6 +5,7 @@ const mediaAssets =
 
 const ItemList = ({ itemCards }) => {
   console.log("itemcards", itemCards);
+  
 
   return (
     <div className="my-4">
@@ -45,7 +46,7 @@ const ItemList = ({ itemCards }) => {
                       ADD
                       
                     </button>
-                    <span className="absolute right-0 -top-10">+</span>
+                    <span className="absolute right-0 -top-2">+</span>
                   </div>
                 </div>
               </div>
