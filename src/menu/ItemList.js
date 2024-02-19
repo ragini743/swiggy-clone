@@ -9,7 +9,7 @@ const ItemList = ({ itemCards }) => {
   return (
     <div className="my-4">
       {itemCards.map((item) => {
-        const { id, name, price, description, isveg, imageId } = item.card.info;
+        const { id, name, description, isveg, imageId } = item.card.info;
         // console.log(isveg=="1")
         return (
           console.log("itme", item),
@@ -30,12 +30,23 @@ const ItemList = ({ itemCards }) => {
                   </div>
                   <div>{description}</div>
                 </div>
-                <div className="w-[15%] rounded-lg h-[100px] ">
+                <div className="w-[15%] rounded-lg h-[100px] relative ">
+                  <div className="h-[100%] w-[100%]">
                   <img
                     src={mediaAssets + imageId}
                     alt=""
                     className="w-[100%] h-[100%] object-cover  rounded-lg"
                   ></img>
+                  </div>
+                 
+                  <div className="absolute -bottom-4 bg-white text-green-600 
+                  right-0 left-0 w-[80%] mx-auto py-2 border-gray-300 border-[1px]">
+                    <button className="font-bold text-gray-700a text-center  w-[100%]">
+                      ADD
+                      
+                    </button>
+                    <span className="absolute right-0 -top-10">+</span>
+                  </div>
                 </div>
               </div>
               <hr className="border-gray-400"></hr>
