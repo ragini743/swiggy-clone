@@ -9,32 +9,36 @@ const RestaurantMenu = () => {
   const { resId } = params;
   const [labelContainer, setLabelContainer] = useState([]);
   const [category, setCategory] = useState([]);
+ 
   const [isVegItem, setIsVegItem] = useState(false);
   const resMenu = useRestaurantMenu(resId);
 
   useEffect(() => {
+
     if (resMenu) {
       setLabelContainer(
-        resMenu.data.cards[1].card.card.gridElements.infoWithStyle.offers
+        resMenu.data.cards[3].card.card.gridElements.infoWithStyle.offers
       );
       setCategory(
-        resMenu.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
+        resMenu.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
           (c) =>
             c?.["card"]?.["card"]?.["@type"] ===
             "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
         )
       );
+    
     }
   }, [resMenu]);
-  // console.log("label",labelContainer)
+
   if (resMenu === null) {
     return <shimmer />;
   }
   if (labelContainer.length === 0) {
     return null;
   }
+ 
   const handleVegItem = () => {
-    console.log("hello");
+    // console.log("hello");
     setIsVegItem(!isVegItem);
   };
   const {
@@ -47,7 +51,7 @@ const RestaurantMenu = () => {
     costForTwoMessage,
     veg,
     locality,
-  } = resMenu.data.cards[0].card.card.info;
+  } = resMenu.data.cards[2].card.card.info;
   const { message } = feeDetails;
   const { slaString } = sla;
 
@@ -97,7 +101,7 @@ const RestaurantMenu = () => {
           <div className="flex items-center">
             <h1 className="mr-2">Veg-Only</h1>
             <div
-              className={`w-10 ${isVegItem?"border-green-600 bg-green-500" :"border-gray-300 bg-gray-300 "} border-[2px] h-5 flex 
+              className={`w-10 ${isVegItem?"border-green-500 bg-green-500" :"border-gray-300 bg-gray-300 "} border-[2px] h-5 flex 
             rounded-[4px]`}
               onClick={() => handleVegItem()}
             >
@@ -124,7 +128,7 @@ const RestaurantMenu = () => {
       </div>
       <div>
         {category.map((cardData) => {
-          return <RestaurantCategory cardData={cardData} />;
+          return <RestaurantCategory cardData={cardData} isVegItem={isVegItem} />;
         })}
       </div>
     </div>

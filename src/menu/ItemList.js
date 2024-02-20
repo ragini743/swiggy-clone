@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 const mediaAssets =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
   const forCloseRestaurant ="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,e_grayscale,c_fit/"
 
 const ItemList = ({ itemCards }) => {
-  console.log("itemcards", itemCards);
-  
+ 
+  // console.log("itemcards", itemCards);
 
   return (
     <div className="my-4">
       {itemCards.map((item) => {
         const { id, name, description, isveg, imageId } = item.card.info;
-        // console.log(isveg=="1")
+       
         return (
-          console.log("itme", item),
+       
           (
             <div key={id} className="mb-10">
               <div className=" flex justify-between mb-8">
