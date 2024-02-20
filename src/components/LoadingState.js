@@ -69,7 +69,7 @@ const LoadingState = ({items ,setItems}) => {
           {items.map((item) => (
            
             item.info.aggregatedDiscountInfoV3 ?( <Link to={`/restaurant/${encodeURIComponent(item.info.name)}-/${item.info.id}`} key={item.info.id}><RestaurantWithPromoted item={item} /></Link>) :(<Link to={`/restaurant/${encodeURIComponent(item.info.name)}-/${item.info.id}`} key={item.info.id} >
-              console.log(item)
+           
               <RestoLoading key={item.info.id} item={item} /></Link>)
            
           

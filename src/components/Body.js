@@ -6,6 +6,7 @@ import ScrollableFood from "./ScrollableFood";
 import RestaurantChain from "./RestaurantChain";
 import LoadingState from "./LoadingState";
 import Footer from "./Footer";
+import LoaderSkelton from "./LoaderSkelton";
 
 
 
@@ -48,54 +49,55 @@ const Body = () => {
     getRestaurant();
   }, []);
   if (listOfRestaurant.length === 0 && scrollFood.length === 0) {
-    return null;
+    return <LoaderSkelton />
   }
+  return <LoaderSkelton />
 
-  return (
-    <div className="pt-16 md:pt-28 overflow-hidden  box-border">
-      <div className=" w-[80%]  max-w-70% mx-auto">
-      <div className="">
-      <div className=" flex justify-between mx-auto">
-        <h1 className="font-bold md:text-2xl">whats on your mind ? ..</h1>
-        <div className="flex  items-center justify-between w-[20%]">
-          <div className="w-[20%]  mr-[5%] border-gray-100 border-2 rounded-full bg-gray-200 ">
-            <img
-              src="https://cdn.iconscout.com/icon/free/png-256/free-angle-left-b-1966289-1659461.png"
-              alt=""
-              className="h-auto w-full rounded-full object-contain"
-            ></img>
-          </div>
-          <div
-            className="w-[20%] mr-[5%] border-gray-100 border-2 rounded-full bg-gray-200 "
-            onClick={() => {
-              handleRightArrow();
-              console.log("hello");
-            }}
-          >
-            <img
-              src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png"
-              alt=""
-              className="h-auto w-full rounded-full object-contain"
-            ></img>
-          </div>
-        </div>
-      </div>
+  // return (
+  //   <div className="pt-16 md:pt-28 overflow-hidden  box-border">
+  //     <div className=" w-[80%]  max-w-70% mx-auto">
+  //     <div className="">
+  //     <div className=" flex justify-between mx-auto">
+  //       <h1 className="font-bold md:text-2xl">whats on your mind ? ..</h1>
+  //       <div className="flex  items-center justify-between w-[20%]">
+  //         <div className="w-[20%]  mr-[5%] border-gray-100 border-2 rounded-full bg-gray-200 ">
+  //           <img
+  //             src="https://cdn.iconscout.com/icon/free/png-256/free-angle-left-b-1966289-1659461.png"
+  //             alt=""
+  //             className="h-auto w-full rounded-full object-contain"
+  //           ></img>
+  //         </div>
+  //         <div
+  //           className="w-[20%] mr-[5%] border-gray-100 border-2 rounded-full bg-gray-200 "
+  //           onClick={() => {
+  //             handleRightArrow();
+  //             console.log("hello");
+  //           }}
+  //         >
+  //           <img
+  //             src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png"
+  //             alt=""
+  //             className="h-auto w-full rounded-full object-contain"
+  //           ></img>
+  //         </div>
+  //       </div>
+  //     </div>
 
-      <div className="flex mt-6   items-center  flex-row overflow-x-auto w-[100%]">
-        {scrollFood.map((data) => (
-          <ScrollableFood key={data.id} data={data} />
-        ))}
-      </div>
-      </div>
-      <RestaurantChain topRestaurant={topRestaurant} />
+  //     <div className="flex mt-6   items-center  flex-row overflow-x-auto w-[100%]">
+  //       {scrollFood.map((data) => (
+  //         <ScrollableFood key={data.id} data={data} />
+  //       ))}
+  //     </div>
+  //     </div>
+  //     <RestaurantChain topRestaurant={topRestaurant} />
       
-    <LoadingState items={items} setItems={setItems} />
+  //   <LoadingState items={items} setItems={setItems} />
    
-      <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
-      </div>
-      <Footer />
-    </div>
-  );
+  //     <RestaurantList listOfRestaurant={listOfRestaurant} setListOfRestaurant={setListOfRestaurant} items={items} setItems={setItems} />
+  //     </div>
+  //     <Footer />
+  //   </div>
+  // );
 };
 
 export default Body;
