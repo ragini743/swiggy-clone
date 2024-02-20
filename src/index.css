@@ -5,17 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* min-width: 768px; */
+
   overflow-x: hidden;
   box-sizing: border-box;
-/* max-width: 768px; */
-  
 }
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -47,3 +40,62 @@ visibility: visible;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+.section-title {
+  background-color: rgba(233, 236, 238, 0.745);
+  margin-top: 30px;
+}
+.card {
+  width: calc(33% - 10px);
+  margin: 20px 0;
+  background-color: rgba(233, 236, 238, 0.745);
+}
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+.card-image {
+  width: 100%;
+}
+.channel-image {
+  border-radius: 100%;
+  padding: 0, 10px, 0, 0;
+  width: 40px;
+  height: 40px;  
+}
+.card-title {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.card-channel {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+/* Tablets */
+@media (max-width: 1000px) {
+  .App {
+    max-width: 600px;
+  }
+  .card {
+    width: calc(50% - 22px);
+  }
+}
+/* Mobiles \*/
+@media (max-width: 640px) {
+  .App {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .card {
+    width: 100%;
+  }
+}
