@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
  
   const [isVegItem, setIsVegItem] = useState(false);
   const resMenu = useRestaurantMenu(resId);
-
+console.log("resMenu",resMenu)
   useEffect(() => {
 
     if (resMenu) {

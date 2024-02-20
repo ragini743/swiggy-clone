@@ -27,11 +27,11 @@ if(onlineFood.length ===0){return null}
             
             
             restaurantData.info.aggregatedDiscountInfoV3?(
-              <Link to={"/restaurant/"+restaurantData.info.id} key={restaurantData.info.id} >
+              <Link to={`/restaurant/${encodeURIComponent(restaurantData.info.name)}-/${restaurantData.info.id}`} key={restaurantData.info.id} >
             <RestaurantWithPromoted2 restaurantData={restaurantData} /></Link>):
            
-            (  <Link to={"/restaurant/"+restaurantData.info.id} key={restaurantData.info.id} >
-            <Restaurants className="" key={restaurantData.info.id} restaurantData={restaurantData} index = {index}  /> </Link>)
+            (  <Link to={`/restaurant/${encodeURIComponent(restaurantData.info.name)}-/${restaurantData.info.id}`} >
+            <Restaurants className=""  restaurantData={restaurantData} index = {index}  /> </Link>)
            
 
           )})}

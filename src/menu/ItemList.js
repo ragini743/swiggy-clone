@@ -60,3 +60,6 @@ const ItemList = ({ itemCards }) => {
 };
 
 export default ItemList;
+
+// const chicago = ""
+
