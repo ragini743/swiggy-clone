@@ -7,6 +7,7 @@ import RestaurantChain from "./RestaurantChain";
 import LoadingState from "./LoadingState";
 import Footer from "./Footer";
 import LoaderSkelton from "./LoaderSkelton";
+import MySpinnerComponent from "./MySpinnerComponent";
 
 
 
@@ -48,10 +49,12 @@ const Body = () => {
   useEffect(() => {
     getRestaurant();
   }, []);
-  if (listOfRestaurant.length === 0 && scrollFood.length === 0) {
-    return <LoaderSkelton />
-  }
-  return <LoaderSkelton />
+  // if (listOfRestaurant.length === 0 && scrollFood.length === 0) {
+  //   return <LoaderSkelton />
+  // }
+  return (<div className="pt-16">
+    <MySpinnerComponent />
+  </div>)
 
   // return (
   //   <div className="pt-16 md:pt-28 overflow-hidden  box-border">
