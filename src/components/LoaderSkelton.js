@@ -26,3 +26,29 @@ const LoaderSkelton= () => {
 
 export default LoaderSkelton;
 
+
+export const Loader = ()=>{
+  return( <div className="grid grid-cols-2 md:grid-cols-4 gap-5 grid-flow-row-dense  mx-auto mt-6">
+     
+  <LoaderSkelton />
+
+    
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+    <LoaderSkelton />
+  </div>
+
+  )
+}
+

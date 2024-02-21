@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TopRestaurant from './TopRestaurant'
 import { Link } from 'react-router-dom'
+import { Loader } from './LoaderSkelton'
 
 const RestaurantChain = ({topRestaurant}) => {
   const [resData,setResData] = useState([])
@@ -14,7 +15,7 @@ const RestaurantChain = ({topRestaurant}) => {
   const {title} = topRestaurant.card.card.header
   
   if(resData.length===0){
-    return null
+    return <Loader />
   }
 
   return (

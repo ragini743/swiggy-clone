@@ -3,6 +3,7 @@ import Restaurants from './Restaurants'
 import LoadingState from './LoadingState'
 import { PromotedLableTwo } from './Restaurants' 
 import { Link } from 'react-router-dom'
+import { Loader } from './LoaderSkelton'
 
 
 const RestaurantList = ({listOfRestaurant ,setItems}) => {
@@ -16,7 +17,7 @@ useEffect(()=>{
   setOnlineFood(data)
   setItems(data)
 } ,[])
-if(onlineFood.length ===0){return null}
+if(onlineFood.length ===0){return <Loader />}
 
 
   return (

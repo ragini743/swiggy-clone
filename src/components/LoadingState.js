@@ -3,7 +3,7 @@ import React, { useState ,useEffect} from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
 import RestoLoading, { PromotedLable } from './RestoLoading';
-import LoaderSkelton from './LoaderSkelton';
+import LoaderSkelton, { Loader } from './LoaderSkelton';
 import { Link } from 'react-router-dom';
 
 const LoadingState = ({items ,setItems}) => {
@@ -61,7 +61,7 @@ const LoadingState = ({items ,setItems}) => {
         dataLength={items.length}
         next={fetchData}
         hasMore={true} // Replace with a condition based on your data source
-        loader={<p>Loading ..... </p>}
+        loader={<Loader />}
         endMessage={<p>No more data to load.</p>}
         className='overflow-x-hidden'
       >

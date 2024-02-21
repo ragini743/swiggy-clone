@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import LabelCard from "./LabelCard";
 import RestaurantCategory from "./RestaurantCategory";
+import { Loader } from "../components/LoaderSkelton";
 
 const RestaurantMenu = () => {
   const params = useParams();
@@ -31,7 +32,7 @@ console.log("resMenu",resMenu)
   }, [resMenu]);
 
   if (resMenu === null) {
-    return <shimmer />;
+    return <Loader />;
   }
   if (labelContainer.length === 0) {
     return null;

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import TitleComponent from "./TitleComponent";
 import IssueContainer from "./IssueContainer";
 import IssueType from "./IssueType";
+import AccordionLoader, { MyAccordion } from "./AccordianSkelton";
+import GmailLoader from "./AccordianSkelton";
 
 const HelpSUpport = () => {
   const [listTitle, setListTitle] = useState([]);
@@ -20,7 +22,7 @@ const HelpSUpport = () => {
   }, []);
  
   if (listTitle.length === 0) {
-    return null;
+    return <div className="pt-24 w-[80%] mx-auto"><GmailLoader />;</div>
   }
 
   return (
