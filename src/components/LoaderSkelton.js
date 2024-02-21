@@ -1,25 +1,28 @@
-import React from 'react'
+import React from "react";
+import ContentLoader from "react-content-loader";
 
-const LoaderSkelton = () => {
-  const style = {
-    backgroundImage : "url('https://cdn-icons-png.flaticon.com/512/2771/2771401.png') center no-repeat",
-  }
-  
+const LoaderSkelton= () => {
+  const margin = 10
   return (
-    <div className='pt-16 md:pt-20 bg-gray-900  overflow-hidden'>
-      <div className=' flex justify-center items-center w-full h-full py-36'>
-      <div className='w-36 bg-white m-auto my-auto flex justify-center items-center bg-[url("https://cdn-icons-png.flaticon.com/512/2771/2771401.png")] bg-center bg-no-repeat object-cover h-full '>
-            
-            <div className='border-t-[6px] border-t-gray-700 border-r-[7px] border-r-gray-500 border-b-gray-400 border-b-[8px] border-l-[9px] border-l-gray-200  w-32 h-32  rounded-full'>
-           </div>
-       
-           
-        </div>
+    <ContentLoader
+      viewBox="0 0 250 265"
+      height={265}
+      width={280}
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+      margin-top="5"
+      padding="0"
+    >
+      {/* Restaurant card */}
+      <rect x="0" y="10" rx="8" ry="8" width="350" height="180" />
 
-      </div>
+     
+      <rect x="0" y="200" rx="8" ry="8" width="220" height="20" />
+      <rect x="0" y="230" rx="8" ry="8" width="180" height="20" />
+      
+    </ContentLoader>
+  );
+};
 
-    </div>
-  )
-}
+export default LoaderSkelton;
 
-export default LoaderSkelton
