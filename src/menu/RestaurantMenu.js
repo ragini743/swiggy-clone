@@ -4,6 +4,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import LabelCard from "./LabelCard";
 import RestaurantCategory from "./RestaurantCategory";
 import { Loader } from "../components/LoaderSkelton";
+import RestaurantMenuSkeleton from "./MenuSkelton";
 
 const RestaurantMenu = () => {
   const params = useParams();
@@ -32,8 +33,9 @@ console.log("resMenu",resMenu)
   }, [resMenu]);
 
   if (resMenu === null) {
-    return <Loader />;
+    return <div className="pt-24 mx-auto w-[60%]"><RestaurantMenuSkeleton /></div>;
   }
+
   if (labelContainer.length === 0) {
     return null;
   }

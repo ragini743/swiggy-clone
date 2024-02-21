@@ -42,7 +42,7 @@ const LoadingState = ({items ,setItems}) => {
         fetchData();
       }, []);
       
-   if(isLoading.length===0){return null}
+   if(isLoading.length===0){return <Loader />}
    return (
     <div className='overflow-x-hidden'>
            <hr className='shadow-lg'></hr>
