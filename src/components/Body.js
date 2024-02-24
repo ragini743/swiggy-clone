@@ -9,6 +9,7 @@ import Footer from "./Footer";
 
 import MySpinnerComponent from "./MySpinnerComponent";
 import ScrollableFoodList from "./ScrollableFoodList";
+import useStatus from "../utils/useStatus";
 
 
 
@@ -19,6 +20,7 @@ const Body = () => {
 
   const [scrollFood, setScrollFood] = useState([]);
   const [scrollPositon, setScrollPosition] = useState(0);
+  const onlineStatus = useStatus();
   useEffect(() => {
     getRestaurant();
   }, []);
@@ -60,6 +62,9 @@ const Body = () => {
     </div>
   }
   
+  if(onlineStatus===false){
+    return <p>you are offline</p>
+  }
 
   return (
     <div className="pt-16 md:pt-28 overflow-hidden  box-border">
