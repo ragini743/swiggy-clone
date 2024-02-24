@@ -8,6 +8,7 @@ import RestaurantMenu from './menu/RestaurantMenu';
 import HelpSUpport from './help/HelpSUpport';
 
 import IssueType from './help/IssueType';
+import SearchContainer from './search/SearchContainer';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ export const appRouter = createBrowserRouter([
       },
       {
         path:"/search",
-        element:"",
+        element:<SearchContainer />,
       },
      
       {

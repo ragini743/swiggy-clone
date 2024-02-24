@@ -5,7 +5,7 @@ import { Loader } from './LoaderSkelton'
 
 const RestaurantChain = ({topRestaurant}) => {
   const [resData,setResData] = useState([])
-  
+  console.log("top",topRestaurant)
   const data = topRestaurant.card.card.gridElements.infoWithStyle.restaurants
 
   useEffect(()=>{
