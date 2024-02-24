@@ -1,6 +1,7 @@
 import React from "react";
 import { Logo } from "../utils/constant";
 import { Link } from "react-router-dom";
+import useStatus from "../utils/useStatus";
 
 const arrayOfContent = [
     {
@@ -54,6 +55,9 @@ export const Content = ({ content }) => {
 };
 
 const Header = () => {
+  const status = useStatus();
+  console.log("status",status)
+
   return (
     <div className=" flex justify-evenly w-[100%] shadow-lg bg-white z-30 fixed py-2 md:px-20 md:py-4">
       <div className="flex w-[45%] justify-between items-center">
@@ -65,7 +69,11 @@ const Header = () => {
         </div>
       
       </div>
-
+      <div className="flex items-center">
+         <p className={" text-white px-2 py-1 rounded-xl "+ (status?"bg-green-800":"bg-red-800")}>{status?"online":"offline"}
+        </p>
+      </div>
+    
       <div className="flex items-center w-[50%] justify-evenly flex-grow basis-0 ">
         {arrayOfContent.map((content) => {
           return <Content key={content.id} content={content} />;

@@ -63,7 +63,7 @@ const Body = () => {
   }
   
   if(onlineStatus===false){
-    return <p>you are offline</p>
+    return <p className="pt-28 pl-4 font-bold text-lg">you are offline !! </p>
   }
 
   return (
