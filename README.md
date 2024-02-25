@@ -8,5 +8,7 @@ when send our project to roduction we saw only one js file.if have a large scale
 
 using Lazy Loading we can create different bundle for different file .
 if we add Lazy Loading to a component then the component will not load until we not opent that component.
-it is also known as on demand loading
+it is also known as on demand loading .
+suppose we want to render <HealpSuport /> through lazy loading .
+then const HelpSUpport = lazy(() => import("./help/HelpSUpport")) ;
 ``` 

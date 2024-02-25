@@ -2,13 +2,17 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import Body from './components/Body';
 import Header from './components/Header';
-import SignIn from './form/SignIn';
+
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
-import HelpSUpport from './help/HelpSUpport';
 
 import IssueType from './help/IssueType';
 import SearchContainer from './search/SearchContainer';
+import { Suspense, lazy } from 'react';
+import GmailLoader from './help/AccordianSkelton';
+
+const HelpSUpport = lazy(() => import("./help/HelpSUpport")) ;
+const SignIn =lazy(()=>import ("./form./SignIn"))
 
 function App() {
   return (
@@ -47,12 +51,10 @@ export const appRouter = createBrowserRouter([
       },
       {
         path:"/support",
-        element:<HelpSUpport />,
+        element: <Suspense fallback={<GmailLoader />}><HelpSUpport />
+        </Suspense>,
        },
-      // {
-      //   path:"/support/issue/:type",
-      //   element:<IssueType />
-      // }
+     
     ],
     
     errorElement:<Error />,
@@ -60,7 +62,7 @@ export const appRouter = createBrowserRouter([
   },
   {
     path:"form",
-    element:<SignIn />,
+    element:<Suspense fallback={"Loading"}><SignIn /></Suspense>,
     
   },
 
