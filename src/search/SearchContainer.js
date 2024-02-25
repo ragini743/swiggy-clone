@@ -25,8 +25,8 @@ const SearchContainer = () => {
             <p className='font-bold '>
                 Popular Cuisines
             </p>
-            <div>
-                {/* <ScrollableFoodList /> */}
+            <div className='h-20 mb-10'>
+                <ScrollableFoodList />
             </div>
         </div>
 

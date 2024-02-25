@@ -2,7 +2,7 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import Body from './components/Body';
 import Header from './components/Header';
-
+// import SignIn from './form/SignIn';
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
 
@@ -12,7 +12,7 @@ import { Suspense, lazy } from 'react';
 import GmailLoader from './help/AccordianSkelton';
 
 const HelpSUpport = lazy(() => import("./help/HelpSUpport")) ;
-const SignIn =lazy(()=>import ("./form./SignIn"))
+const SignIn =lazy(()=>import ("./form/SignIn"));
 
 function App() {
   return (
