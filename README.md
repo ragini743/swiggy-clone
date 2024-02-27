@@ -11,4 +11,7 @@ if we add Lazy Loading to a component then the component will not load until we 
 it is also known as on demand loading .
 suppose we want to render <HealpSuport /> through lazy loading .
 then const HelpSUpport = lazy(() => import("./help/HelpSUpport")) ;
-``` 
+```
+### React context 
+it is like a global object which is we can use anywhere inside our project it is used to avoid props drilling . 
+we use useContext hook to access Context .

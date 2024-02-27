@@ -9,7 +9,7 @@ const ItemList = ({ itemCards }) => {
     <div className="my-4">
       {itemCards.map((item) => {
         const { id, name, description, isVeg, imageId } = item.card.info;
-        console.log("isveg",isVeg===1)
+        // console.log("isveg",isVeg===1)
        
         return (
        

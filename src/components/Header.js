@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Logo } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/useStatus";
+import UserContext from "../utils/UserContext";
 
 const arrayOfContent = [
     {
@@ -23,17 +24,18 @@ const arrayOfContent = [
     id: "3",
     href:"/support"
   },
-  {
-    src: "https://cdn-icons-png.freepik.com/256/456/456283.png",
-    text: "SignIn",
-    id: "4",
-    href:"/form"
-  },
+
   {
     src: "https://static-00.iconduck.com/assets.00/shopping-cart-icon-251x256-7876j5yc.png",
     text: "Cart",
     id: "5",
     href:"/cart"
+  },
+  {
+    src: "https://cdn-icons-png.freepik.com/256/456/456283.png",
+    text: "SignIn",
+    id: "4",
+    href:"/form"
   },
 ];
 export const Content = ({ content }) => {
@@ -57,7 +59,8 @@ export const Content = ({ content }) => {
 const Header = () => {
   const status = useStatus();
   console.log("status",status)
-
+ const {loggedInUser} = useContext(UserContext)
+ 
   return (
     <div className=" flex justify-evenly w-[100%] shadow-lg bg-white z-30 fixed py-2 md:px-20 md:py-4">
       <div className="flex w-[45%] justify-between items-center">
@@ -79,6 +82,7 @@ const Header = () => {
           return <Content key={content.id} content={content} />;
         })}
       </div>
+      {loggedInUser}
     </div>
   );
 };

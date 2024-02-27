@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { validateSignUp, validateLogin } from "./validate";
+import UserContext from "../utils/UserContext";
 
 const SignIn = () => {
   const [isSignInForm, setIsSignInForm] = useState(false);
@@ -60,6 +61,7 @@ const SignIn = () => {
       }
     }
   };
+  const contextData = useContext(UserContext)
 
   return (
     <div className="w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] mx-auto mt-10">
@@ -145,6 +147,7 @@ const SignIn = () => {
         </p>
       </form>
     </div>
+  
   );
 };
 
