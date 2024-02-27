@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+
 const mediaAssets =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
   const forCloseRestaurant ="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,e_grayscale,c_fit/"
 
 const ItemList = ({ itemCards }) => {
  
-  // console.log("itemcards", itemCards);
-
   return (
     <div className="my-4">
       {itemCards.map((item) => {
-        const { id, name, description, isveg, imageId } = item.card.info;
+        const { id, name, description, isVeg, imageId } = item.card.info;
+        console.log("isveg",isVeg===1)
        
         return (
        
@@ -18,11 +17,12 @@ const ItemList = ({ itemCards }) => {
             <div key={id} className="mb-10">
               <div className=" flex justify-between mb-8">
                 <div className="w-[80%] ">
-                  {isveg === true ? (
+                   
                     <div className="w-4">
-                      <img src="/pureVeg-logo.png" alt=""></img>
+
+                      <img src={isVeg===1?"/pureVeg-logo.png":"/nonVeg-logo.png"} alt="" className="w-full h-full object-contain"></img>
                     </div>
-                  ) : null}
+                  
 
                   <div className="font-bold text-gray-700">{name}</div>
                   <div className=" text-gray-700">
