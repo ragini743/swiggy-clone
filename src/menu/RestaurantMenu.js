@@ -14,13 +14,15 @@ const RestaurantMenu = () => {
  
   const [isVegItem, setIsVegItem] = useState(false);
   const resMenu = useRestaurantMenu(resId);
-
+console.log("resMenu.",resMenu)
+console.log("category",category.length)
   useEffect(() => {
 
     if (resMenu) {
       setLabelContainer(
         resMenu.data.cards[3].card.card.gridElements.infoWithStyle.offers
       );
+    
       setCategory(
         resMenu.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards.filter(
           (c) =>
@@ -32,9 +34,10 @@ const RestaurantMenu = () => {
     }
   }, [resMenu]);
 
-  if (resMenu === null) {
+  if (resMenu === null ) {
     return <div className="pt-24 mx-auto w-[60%]"><RestaurantMenuSkeleton /></div>;
   }
+   if(category.length===0){ return }
 
   if (labelContainer.length === 0) {
     return null;
