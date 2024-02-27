@@ -1,25 +1,25 @@
-import React from 'react' ;
+import React from "react";
 
-
-import ScrollableFood from './ScrollableFood';
-import useRestaurantCrousel1 from '../utils/useRestaurantCrousel1';
+import ScrollableFood from "./ScrollableFood";
+import useRestaurantCrousel1 from "../utils/useRestaurantCrousel1";
 
 const ScrollableFoodList = () => {
- const scrollFood = useRestaurantCrousel1()
+  const [scrollFood, ] = useRestaurantCrousel1();
 
-if(scrollFood.length===0){return }
+  if (scrollFood.length === 0) {
+    return;
+  }
+
   return (
     <div>
-      
-        <div className="flex mt-6   items-center  flex-row overflow-x-auto w-[100%]">
+  
+      <div className="flex mt-6   items-center  flex-row overflow-x-auto w-[100%]">
         {scrollFood.map((data) => (
           <ScrollableFood key={data.id} data={data} />
-        ))}
-      </div>
-        
-
+        ))} 
+       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ScrollableFoodList
+export default ScrollableFoodList;
