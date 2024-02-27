@@ -3,10 +3,10 @@ import React, { useState ,useEffect} from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { loadingData } from '../utils/loadingData';
 import RestoLoading, { PromotedLable } from './RestoLoading';
-import LoaderSkelton, { Loader } from './LoaderSkelton';
+import  { Loader } from './LoaderSkelton';
 import { Link } from 'react-router-dom';
 
-const LoadingState = ({items ,setItems}) => {
+const InfiniteRestaurant = ({items ,setItems}) => {
  
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -81,4 +81,4 @@ const LoadingState = ({items ,setItems}) => {
   )
 }
 
-export default LoadingState
+export default InfiniteRestaurant;

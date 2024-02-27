@@ -1,6 +1,7 @@
 import React from "react";
 import { s } from "../utils/constant";
-import LoadingState from "./LoadingState";
+
+
 const Restaurants = ({ restaurantData, index }) => {
   // console.log(restaurantData);
   const { cloudinaryImageId, name, areaName, avgRating, cuisines, sla } =

@@ -2,11 +2,10 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import Body from './components/Body';
 import Header from './components/Header';
-// import SignIn from './form/SignIn';
+
 import Error from './Error';
 import RestaurantMenu from './menu/RestaurantMenu';
 
-import IssueType from './help/IssueType';
 import SearchContainer from './search/SearchContainer';
 import { Suspense, lazy } from 'react';
 import GmailLoader from './help/AccordianSkelton';
@@ -18,7 +17,7 @@ function App() {
   return (
     <div className="App overflow-hidden box-border w-full">
        <Header />
-       {/* <Body /> */}
+ 
        <Outlet />
     </div>
   );

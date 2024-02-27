@@ -11,7 +11,7 @@ const ScrollableFoodList = () => {
   }
 
   return (
-    <div>
+    <div className="w-full h-full">
   
       <div className="flex mt-6   items-center  flex-row overflow-x-auto w-[100%]">
         {scrollFood.map((data) => (

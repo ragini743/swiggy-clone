@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Restaurants from './Restaurants'
-import LoadingState from './LoadingState'
+import LoadingState from './InfiniteRestaurant'
 import { PromotedLableTwo } from './Restaurants' 
 import { Link } from 'react-router-dom'
 import { Loader } from './LoaderSkelton'

@@ -4,7 +4,7 @@ import { restaurantListData } from "../utils/constant";
 import RestaurantList from "./RestaurantList";
 
 import RestaurantChain from "./RestaurantChain";
-import LoadingState from "./LoadingState";
+import InfiniteRestaurant from "./InfiniteRestaurant";
 import Footer from "./Footer";
 
 import MySpinnerComponent from "./MySpinnerComponent";
@@ -99,7 +99,7 @@ const Body = () => {
 
         <RestaurantChain />
 
-        <LoadingState items={items} setItems={setItems} />
+        <InfiniteRestaurant items={items} setItems={setItems} />
 
         <RestaurantList
           listOfRestaurant={listOfRestaurant}
