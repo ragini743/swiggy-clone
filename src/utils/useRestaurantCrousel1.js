@@ -10,8 +10,6 @@ const useRestaurantCrousel1 = () => {
     getRestaurant();
   }, []);
 
-
-
   const getRestaurant = async () => {
     const p = new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -19,13 +17,12 @@ const useRestaurantCrousel1 = () => {
       }, 2000);
     });
     const json = await p;
-   
 
     setScrollFood(json.data.cards[0].card.card.gridElements.infoWithStyle.info);
     setTopRestaurant(json.data.cards[1]);
   };
 
-  return [scrollFood, topRestaurant]
+  return [scrollFood, topRestaurant];
 };
 
 export default useRestaurantCrousel1;

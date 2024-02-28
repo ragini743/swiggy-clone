@@ -1,11 +1,21 @@
 import React, { useContext, useRef, useState } from "react";
 import { validateSignUp, validateLogin } from "./validate";
 import UserContext from "../utils/UserContext";
+import { useNavigate} from "react-router-dom";
+
 
 const SignIn = () => {
   const [isSignInForm, setIsSignInForm] = useState(false);
   const [error, setError] = useState(null);
   const [signInError, setSignInError] = useState(null);
+  const [formSubmitted,setFormSubmitted] = useState(false)
+
+const navigate =useNavigate()
+console.log("navigate",navigate)
+function navigateTOHomePage (){
+  navigate("/")
+}
+
   const toggleButton = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -13,14 +23,18 @@ const SignIn = () => {
   const email = useRef(null);
   const number = useRef(null);
   const name = useRef(null);
+  console.log("name",number)
 
   const handleValidation = () => {
     if (!isSignInForm) {
       if (number !== "") {
         const isValid = validateLogin(number.current.value);
-        console.log("isValid", isValid);
+       
         if (isValid) {
           alert("Thank you for Login!!!");
+          setFormSubmitted(true)
+        
+          navigateTOHomePage()
           number.current.value = null;
           setError("");
         } else {
@@ -46,11 +60,13 @@ const SignIn = () => {
         );
         console.log("validate", isValidSignUp);
         if (isValidSignUp.number&&isValidSignUp.name&&isValidSignUp.email) {
+          setUserName(name.current.value)
           alert("Thank you !");
           number.current.value = null;
           name.current.value = null;
           email.current.value = null;
           setSignInError("");
+          setFormSubmitted(true)
         } else {
           let errorMessage = "";
           if (!isValidSignUp.number) errorMessage += "Invalid number. ";
@@ -61,7 +77,12 @@ const SignIn = () => {
       }
     }
   };
-  const contextData = useContext(UserContext)
+  const {loggedInUser,setUserName} = useContext(UserContext)
+
+
+  if(formSubmitted){
+    return <div>Form is submitted navigate to Home page ...</div>
+  }
 
   return (
     <div className="w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] mx-auto mt-10">
@@ -74,7 +95,7 @@ const SignIn = () => {
             {isSignInForm ? "Sign up" : "Login"}
           </h1>
           <h1 className="mt-2">
-            or{" "}
+            or
             <span className="text-orange-500 " onClick={toggleButton}>
               {isSignInForm ? "or login to your account" : "create an account"}
             </span>
@@ -104,7 +125,7 @@ const SignIn = () => {
                 ref={name}
                 type="text"
                 id="name"
-                className="outline-none"
+                className="outline-none bg-none"
               ></input>
             </div>
           ) : null}
