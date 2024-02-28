@@ -4,14 +4,20 @@ import UserContext from "../utils/UserContext";
 import { useNavigate} from "react-router-dom";
 
 
-const SignIn = () => {
+
+const SignIn = ({children}) => {
   const [isSignInForm, setIsSignInForm] = useState(false);
   const [error, setError] = useState(null);
   const [signInError, setSignInError] = useState(null);
   const [formSubmitted,setFormSubmitted] = useState(false)
 
+  const data = useContext(UserContext)
+  console.log("datat",data)
+  
+
+
 const navigate =useNavigate()
-console.log("navigate",navigate)
+
 function navigateTOHomePage (){
   navigate("/")
 }
@@ -23,7 +29,7 @@ function navigateTOHomePage (){
   const email = useRef(null);
   const number = useRef(null);
   const name = useRef(null);
-  console.log("name",number)
+  console.log("name",name)
 
   const handleValidation = () => {
     if (!isSignInForm) {
@@ -60,8 +66,9 @@ function navigateTOHomePage (){
         );
         console.log("validate", isValidSignUp);
         if (isValidSignUp.number&&isValidSignUp.name&&isValidSignUp.email) {
-          setUserName(name.current.value)
+          // setUserName(name.current.value)
           alert("Thank you !");
+          navigateTOHomePage()
           number.current.value = null;
           name.current.value = null;
           email.current.value = null;
@@ -77,12 +84,10 @@ function navigateTOHomePage (){
       }
     }
   };
-  const {loggedInUser,setUserName} = useContext(UserContext)
+  
 
 
-  if(formSubmitted){
-    return <div>Form is submitted navigate to Home page ...</div>
-  }
+  
 
   return (
     <div className="w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] mx-auto mt-10">
@@ -95,7 +100,7 @@ function navigateTOHomePage (){
             {isSignInForm ? "Sign up" : "Login"}
           </h1>
           <h1 className="mt-2">
-            or
+            or{" "}
             <span className="text-orange-500 " onClick={toggleButton}>
               {isSignInForm ? "or login to your account" : "create an account"}
             </span>
@@ -125,6 +130,7 @@ function navigateTOHomePage (){
                 ref={name}
                 type="text"
                 id="name"
+              
                 className="outline-none bg-none"
               ></input>
             </div>

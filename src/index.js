@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App, { AppContainer } from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import { appRouter } from './App';
+import UserContext from './utils/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  
     {/* <App /> */}
-    <RouterProvider router={appRouter} />
+    {/* <RouterProvider router={appRouter} /> */}
+    <AppContainer />
+   
   </React.StrictMode>
 );
 

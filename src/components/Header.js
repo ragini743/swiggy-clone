@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Logo } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/useStatus";
-import UserContext from "../utils/UserContext";
+
 
 const arrayOfContent = [
     {
@@ -58,8 +58,8 @@ export const Content = ({ content }) => {
 
 const Header = () => {
   const status = useStatus();
-  console.log("status",status)
- const {loggedInUser} = useContext(UserContext)
+  // console.log("status",status)
+
  
   return (
     <div className=" flex justify-evenly w-[100%] shadow-lg bg-white z-30 fixed py-2 md:px-20 md:py-4">
@@ -82,7 +82,7 @@ const Header = () => {
           return <Content key={content.id} content={content} />;
         })}
       </div>
-      {loggedInUser}
+  
     </div>
   );
 };

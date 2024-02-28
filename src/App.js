@@ -9,24 +9,23 @@ import SearchContainer from "./search/SearchContainer";
 import { Suspense, lazy, useEffect, useState } from "react";
 import GmailLoader from "./help/AccordianSkelton";
 import UserContext from "./utils/UserContext";
+import { RouterProvider } from "react-router-dom";
 
 const HelpSUpport = lazy(() => import("./help/HelpSUpport"));
 const SignIn = lazy(() => import("./form/SignIn"));
 
+
+
 function App() {
-  const [userName, setUserName] = useState();
-  useEffect(() => {
-    setUserName("");
-  }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+   
       <div className="App overflow-hidden box-border w-full">
         <Header />
 
         <Outlet />
       </div>
-    </UserContext.Provider>
+
   );
 }
 
@@ -75,3 +74,19 @@ export const appRouter = createBrowserRouter([
     ),
   },
 ]);
+
+
+export function AppContainer() {
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    setUserName("Raginee");
+  }, [userName]);
+  return (
+    <UserContext.Provider value={{ userName, setUserName }}>
+      {/* <AppWithRouter /> */}
+      <RouterProvider router={appRouter} />
+    </UserContext.Provider>
+  );
+}
+
+
