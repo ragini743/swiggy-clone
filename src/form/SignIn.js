@@ -132,7 +132,7 @@ function navigateTOHomePage (){
                 type="text"
                 id="name"
               
-                className="outline-none bg-none"
+                className="outline-none bg-white"
               ></input>
             </div>
           ) : null}
@@ -144,7 +144,7 @@ function navigateTOHomePage (){
                 ref={email}
                 type="email"
                 id="email"
-                className="outline-none"
+                className="outline-none bg-white"
               ></input>
             </div>
           ) : null}

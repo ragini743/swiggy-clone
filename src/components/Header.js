@@ -65,7 +65,8 @@ console.log("context",context)
 // Replace "SignIn" with the context value
 const updatedArrayOfContent = arrayOfContent.map((content) => {
   if (content.text === "SignIn") {
-    return { ...content, text: context.userName || "SignIn" }; // Use context value or fallback to "SignIn"
+    return { ...content, text: context.userName || "SignIn" }; 
+    // Use context value or fallback to "SignIn"
   }
   return content;
 });
