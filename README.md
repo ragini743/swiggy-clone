@@ -15,3 +15,16 @@ then const HelpSUpport = lazy(() => import("./help/HelpSUpport")) ;
 ### React context 
 it is like a global object which is we can use anywhere inside our project it is used to avoid props drilling . 
 we use useContext hook to access Context .
+### useNavigate()
+
+it isi a function which is provided by react-router-dom by using this we can navigate back to previous page .
+```
+const navigate = useNavigate()
+and now we have just created a function which we can use in any condition
+
+function toggleForm (){
+    navigate("")
+    //inside navigate we can provide path
+}
+
+```
