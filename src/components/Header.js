@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Logo } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/useStatus";
+import UserContext from "../utils/UserContext";
 
 
 const arrayOfContent = [
@@ -59,7 +60,15 @@ export const Content = ({ content }) => {
 const Header = () => {
   const status = useStatus();
   // console.log("status",status)
-
+const context = useContext(UserContext)
+console.log("context",context)
+// Replace "SignIn" with the context value
+const updatedArrayOfContent = arrayOfContent.map((content) => {
+  if (content.text === "SignIn") {
+    return { ...content, text: context.userName || "SignIn" }; // Use context value or fallback to "SignIn"
+  }
+  return content;
+});
  
   return (
     <div className=" flex justify-evenly w-[100%] shadow-lg bg-white z-30 fixed py-2 md:px-20 md:py-4">
@@ -78,7 +87,7 @@ const Header = () => {
       </div>
     
       <div className="flex items-center w-[50%] justify-evenly flex-grow basis-0 ">
-        {arrayOfContent.map((content) => {
+        {updatedArrayOfContent.map((content) => {
           return <Content key={content.id} content={content} />;
         })}
       </div>

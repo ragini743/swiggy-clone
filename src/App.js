@@ -79,8 +79,8 @@ export const appRouter = createBrowserRouter([
 export function AppContainer() {
   const [userName, setUserName] = useState("");
   useEffect(() => {
-    setUserName("Raginee");
-  }, [userName]);
+    setUserName("");
+  }, []);
   return (
     <UserContext.Provider value={{ userName, setUserName }}>
       {/* <AppWithRouter /> */}

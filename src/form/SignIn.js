@@ -11,8 +11,8 @@ const SignIn = ({children}) => {
   const [signInError, setSignInError] = useState(null);
   const [formSubmitted,setFormSubmitted] = useState(false)
 
-  const data = useContext(UserContext)
-  console.log("datat",data)
+  const {userName,setUserName} = useContext(UserContext)
+  console.log("datat",userName)
   
 
 
@@ -66,7 +66,8 @@ function navigateTOHomePage (){
         );
         console.log("validate", isValidSignUp);
         if (isValidSignUp.number&&isValidSignUp.name&&isValidSignUp.email) {
-          // setUserName(name.current.value)
+          console.log(name.current.value)
+          setUserName(name.current.value)
           alert("Thank you !");
           navigateTOHomePage()
           number.current.value = null;
